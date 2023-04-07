@@ -1,9 +1,14 @@
 using API.IServices;
+using API.Middlewares;
 using API.Services;
 using Data;
 using Logic.Ilogic;
+using Logic.ILogic;
 using Logic.Logic;
 using Microsoft.EntityFrameworkCore;
+using Security.IServices;
+using Security.Services;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +22,16 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<IRecipeItemLogic, RecipeItemLogic>();
 builder.Services.AddScoped<IRecipeItemService, RecipeItemService>();
+
+builder.Services.AddScoped<IUserLogic, UserLogic>();
+builder.Services.AddScoped<IUserService, UserService>();
+
+
+builder.Services.AddScoped<IUserSecurityLogic, UserSecurityLogic>();
+builder.Services.AddScoped<IUserSecurityService, UserSecurityService>();
+
+
+
 
 
 
@@ -51,7 +66,19 @@ if (app.Environment.IsDevelopment())
 
 }
 
-//app.UseMiddleware<CorsMiddleware>();
+app.Use(async (context, next) => {
+    var serviceScope = app.Services.CreateScope();
+    var userSecurityService = serviceScope.ServiceProvider.GetRequiredService<IUserSecurityService>();
+    var requestAuthorizationMiddleware = new RequestAuthorizationMiddleware(userSecurityService);
+    requestAuthorizationMiddleware.ValidateRequestAutorizathion(context);
+    await next();
+});
+
+app.UseHttpsRedirection();
+
+app.UseAuthorization();
+
+
 
 app.UseCors("AllowAll");
 

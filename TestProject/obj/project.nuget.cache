@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "w9uc3kNqHF6LZeGHfSpQIw4xycJWfZcpzDaz1Nf6bLT44mdLtF391QJLgxPSI2Df26BBnhSE93Lx6UMwpYB/Ww==",
+  "dgSpecHash": "hys9GjSGeIAjzmHw5mPLIq7NJlSX1+z1aQL+pTrwFjZNCiv9HYNhq3q4o+GEg3cDXiP7Vv8OucBjRBSL4GAKqg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\TestProject\\TestProject.csproj",
+  "projectFilePath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\TestProject\\TestProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\juanc\\.nuget\\packages\\coverlet.collector\\3.1.2\\coverlet.collector.3.1.2.nupkg.sha512",
     "C:\\Users\\juanc\\.nuget\\packages\\microsoft.codecoverage\\17.3.2\\microsoft.codecoverage.17.3.2.nupkg.sha512",

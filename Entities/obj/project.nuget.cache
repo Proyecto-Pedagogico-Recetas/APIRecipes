@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/QJXGIpC5h0kDWreY4R7tEan+Jf4Q88b4aX8I+uvON3gXW3xZLOboEmIpuwmBQVkFnjy6AuFxwqFTrp6cjOSQg==",
+  "dgSpecHash": "1XBKCFkBXvO8bP+xMqTwBU2h58qWZjRu+ha5o/10x8qErPGS7+zMhrkQ074MEy/e06Sfbypv4haevAkX0bzk0Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\Entities\\Entities.csproj",
+  "projectFilePath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\juanc\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\juanc\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

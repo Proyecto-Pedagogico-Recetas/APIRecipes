@@ -12,6 +12,8 @@
           "Logic": "1.0.0",
           "Microsoft.AspNet.WebApi.Cors": "5.2.9",
           "Microsoft.EntityFrameworkCore.Design": "7.0.0",
+          "Resources": "1.0.0",
+          "Security": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3"
         },
         "runtime": {
@@ -1616,10 +1618,28 @@
         "dependencies": {
           "BCrypt.Net-Next": "4.0.3",
           "Data": "1.0.0",
-          "Entities": "1.0.0"
+          "Entities": "1.0.0",
+          "Resources": "1.0.0"
         },
         "runtime": {
           "Logic.dll": {}
+        }
+      },
+      "Resources/1.0.0": {
+        "dependencies": {
+          "Entities": "1.0.0"
+        },
+        "runtime": {
+          "Resources.dll": {}
+        }
+      },
+      "Security/1.0.0": {
+        "dependencies": {
+          "BCrypt.Net-Next": "4.0.3",
+          "Logic": "1.0.0"
+        },
+        "runtime": {
+          "Security.dll": {}
         }
       }
     }
@@ -2740,6 +2760,16 @@
       "sha512": ""
     },
     "Logic/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Resources/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Security/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

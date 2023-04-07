@@ -1352,6 +1352,19 @@
         "runtime": {
           "bin/placeholder/Entities.dll": {}
         }
+      },
+      "Resources/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Entities": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Resources.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Resources.dll": {}
+        }
       }
     }
   },
@@ -3947,13 +3960,19 @@
       "type": "project",
       "path": "../Entities/Entities.csproj",
       "msbuildProject": "../Entities/Entities.csproj"
+    },
+    "Resources/1.0.0": {
+      "type": "project",
+      "path": "../Resources/Resources.csproj",
+      "msbuildProject": "../Resources/Resources.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "BCrypt.Net-Next >= 4.0.3",
       "Data >= 1.0.0",
-      "Entities >= 1.0.0"
+      "Entities >= 1.0.0",
+      "Resources >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -3963,11 +3982,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\Logic\\Logic.csproj",
+      "projectUniqueName": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Logic\\Logic.csproj",
       "projectName": "Logic",
-      "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\Logic\\Logic.csproj",
+      "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Logic\\Logic.csproj",
       "packagesPath": "C:\\Users\\juanc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\Logic\\obj\\",
+      "outputPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Logic\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3988,11 +4007,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\Data\\Data.csproj": {
-              "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\Data\\Data.csproj"
+            "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\Data.csproj": {
+              "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\Data.csproj"
             },
-            "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\Entities\\Entities.csproj"
+            "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj"
+            },
+            "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Resources\\Resources.csproj": {
+              "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Resources\\Resources.csproj"
             }
           }
         }

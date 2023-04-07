@@ -3899,11 +3899,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\Data\\Data.csproj",
+      "projectUniqueName": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\Data.csproj",
       "projectName": "Data",
-      "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\Data\\Data.csproj",
+      "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\Data.csproj",
       "packagesPath": "C:\\Users\\juanc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\Data\\obj\\",
+      "outputPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3924,8 +3924,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\Entities\\Entities.csproj": {
-              "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\APIRecipes\\Entities\\Entities.csproj"
+            "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj": {
+              "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj"
             }
           }
         }
