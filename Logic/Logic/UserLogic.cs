@@ -57,7 +57,7 @@ namespace Logic.Logic
         {
             if (userItem.IdRol == (int)UserEnums.Administrator)
             {
-                throw new InvalidOperationException("Acción restringida");
+                throw new InvalidOperationException("Acción no autorizada");
             };
 
             userItem.EncryptedToken = "NOT GENERATED";

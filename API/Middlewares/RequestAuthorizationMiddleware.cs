@@ -1,4 +1,6 @@
-﻿using Security.IServices;
+﻿using API.Attributes;
+using API.IServices;
+using Security.IServices;
 
 namespace API.Middlewares
 {
@@ -12,16 +14,16 @@ namespace API.Middlewares
 
         public void ValidateRequestAutorizathion(HttpContext context)
         {
-            var controller = context.GetRouteData().Values["controller"].ToString();
-            var action = context.GetRouteData().Values["action"].ToString();
-            //if (!(controller == "User" && action == "Login"))
-            if (!(controller == "User" && (action == "Login" || action == "Register")))
+            EndpointAuthorizeAttribute authorization = new EndpointAuthorizeAttribute(context);
+
+            if (authorization.Values.AllowsAnonymous)
             {
-                _userSecurityService.ValidateUserToken(context.Request.Headers.Authorization.ToString(),
-                                                  controller,
-                                                  action,
-                                                  context.Request.Method.ToString());
+                return;
             }
+
+            _userSecurityService.ValidateUserToken(context.Request.Headers.Authorization.ToString(),
+                                                 authorization.Values.AllowedUserRols);
         }
     }
 }
+

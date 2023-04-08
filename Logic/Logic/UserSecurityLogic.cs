@@ -1,6 +1,5 @@
 ﻿using Data;
 using Entities.Entities;
-using Entities.Relations;
 using Logic.ILogic;
 using System.Data;
 using System.Security.Authentication;
@@ -45,7 +44,12 @@ namespace Logic.Logic
             return secureRandomString;
         }
 
-        public bool ValidateUserToken(string userName, string token, string controller, string action, string method)
+        public string HashString(string key)
+        {
+            return BCrypt.Net.BCrypt.HashPassword(key);
+        }
+
+        public bool ValidateUserToken(string userName, string token, List<string> authorizedRols)
         {
             var user = _serviceContext.Set<UserItem>()
                      .Where(u => u.UserName == userName).FirstOrDefault();
@@ -60,47 +64,29 @@ namespace Logic.Logic
                 throw new InvalidCredentialException("El usuario no está activo.");
             }
 
-            var authorizedAction = _serviceContext.Set<AuthorizationItem>()
-                    .Where(a => a.ControllerName == controller
-                          && a.ActionName == action
-                          && a.HTTPMethodType == method)
-                    .FirstOrDefault();
+            var userRol = _serviceContext.Set<UserRolItem>().Where(r => r.Id == user.IdRol).First();
 
-            if (authorizedAction == null)
-            {
-                throw new Exception("Hubo un error inesperado en la base de datos.");
-            }
+            bool authorizedRol = authorizedRols.Any(r => r.Equals(userRol.Name));
 
-            var userAuthorization = _serviceContext.Set<Rol_Authorization>()
-                    .Where(a => a.IdRol == user.IdRol
-                          && a.IdAuthorization == authorizedAction.Id
-                          && a.IsActive == true)
-                    .FirstOrDefault();
-
-            if (userAuthorization == null) 
+            if (!authorizedRol)
             {
                 throw new UnauthorizedAccessException("El usuario no está autorizado para la acción.");
             }
 
-            if(VerifyHashedKey(token, user.EncryptedToken) == false)
+            if (VerifyHashedKey(token, user.EncryptedToken) == false)
             {
                 throw new UnauthorizedAccessException("El token es incorrecto.");
             }
 
             if (DateTime.Now > user.TokenExpireDate)
             {
-                throw new UnauthorizedAccessException("La sesión ha expirado.");
+                throw new UnauthorizedAccessException("El token ha expirado.");
             }
 
             user.TokenExpireDate = DateTime.Now.AddMinutes(10);
             _serviceContext.SaveChanges();
 
             return true;
-        }
-
-        public string HashString(string key)
-        {
-            return BCrypt.Net.BCrypt.HashPassword(key);
         }
 
         private bool VerifyHashedKey(string key, string hash)

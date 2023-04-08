@@ -3,7 +3,7 @@
     public enum UserEnums
     {
         Administrator = 1,
-        Operator = 3,
+        Operator = 2,
     }
 
     public enum AuthorizationItem

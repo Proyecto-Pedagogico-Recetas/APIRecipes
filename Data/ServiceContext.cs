@@ -20,11 +20,11 @@ namespace Data
         public DbSet<CategoryItem> Categories { get; set; }
         public DbSet<UserItem> Users { get; set; }
         public DbSet<UserRolItem> RolType { get; set; }
-        public DbSet<AuthorizationItem> Authorizations { get; set; }
+        //public DbSet<AuthorizationItem> Authorizations { get; set; }
 
         public DbSet<Recipe_Alergen> Recipe_Alergens { get; set; }
         public DbSet<Recipe_Ingredient> Recipe_Ingredients { get; set; }
-        public DbSet<Rol_Authorization> Rol_Authorization{ get; set; }
+        //public DbSet<Rol_Authorization> Rol_Authorization{ get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -60,10 +60,10 @@ namespace Data
                 builder.Entity<UserRolItem>().HasKey(p => p.Id);
             });
 
-            builder.Entity<AuthorizationItem>(entity => {
-                entity.ToTable("Authotizations");
-                builder.Entity<AuthorizationItem>().HasKey(p => p.Id);
-            });
+            //builder.Entity<AuthorizationItem>(entity => {
+            //    entity.ToTable("Authotizations");
+            //    builder.Entity<AuthorizationItem>().HasKey(p => p.Id);
+            //});
 
             builder.Entity<Recipe_Alergen>(entity => {
                 entity.ToTable("Recipe_Alergens");
@@ -79,12 +79,12 @@ namespace Data
                 entity.HasOne<IngredientItem>().WithMany().HasForeignKey(r => r.IngredientId);
             });
 
-            builder.Entity<Rol_Authorization>(entity => {
-                entity.ToTable("Rol_Authorization");
-                builder.Entity<Rol_Authorization>().HasKey(p => p.Id);
-                entity.HasOne<UserRolItem>().WithMany().HasForeignKey(r => r.IdRol);
-                entity.HasOne<AuthorizationItem>().WithMany().HasForeignKey(r => r.IdAuthorization);
-            });
+            //builder.Entity<Rol_Authorization>(entity => {
+            //    entity.ToTable("Rol_Authorization");
+            //    builder.Entity<Rol_Authorization>().HasKey(p => p.Id);
+            //    entity.HasOne<UserRolItem>().WithMany().HasForeignKey(r => r.IdRol);
+            //    entity.HasOne<AuthorizationItem>().WithMany().HasForeignKey(r => r.IdAuthorization);
+            //});
 
 
         }
