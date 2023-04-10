@@ -18,5 +18,10 @@ namespace API.Services
             _recipeItemLogic.InsertRecipe(recipeItem);
             return recipeItem.Id;
         }
+
+        public void DeleteRecipe(int id)
+        {
+            _recipeItemLogic.DeleteRecipe(id);
+        }
     }
 }

@@ -8,18 +8,23 @@ namespace Entities.Entities
 {
     public class RecipeItem
     {
-        public RecipeItem() 
-        { 
-            IsActive= true;
-            InsertDate= DateTime.Now;
+        public RecipeItem()
+        {
+            IsActive = true;
+            InsertDate = DateTime.Now;
+
         }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
+        public List<IngredientItem> Ingredients { get; set; }
         public int Category { get; set; }
         public string Author { get; set; }
-        public bool IsActive { get; private set; }
+        public bool IsActive { get; set; }
         public bool IsPublic { get; set; }
-        public DateTime InsertDate { get; private set; }
+        public DateTime InsertDate { get; set; }
+
+
     }
 }

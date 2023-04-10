@@ -1,3 +1,4 @@
+using API.Attributes;
 using API.IServices;
 using Data;
 using Entities.Entities;
@@ -21,20 +22,22 @@ namespace API.Controllers
 
         }
 
-        [HttpPost(Name = "InsertImage")]
+        [EndpointAuthorize(AllowedUserRols = "Administrador, Operario")]
+        [HttpPost(Name = "InsertRecipe")]
         public int Post([FromBody] RecipeItem recipeItem)
         {
 
             return _recipeItemService.InsertRecipe(recipeItem);
         }
 
-        //[HttpDelete(Name = "DeleteImage")]
-        //public void Delete([FromQuery] int Id)
-        //{
+        [EndpointAuthorize(AllowedUserRols = "Administrador")]
+        [HttpDelete(Name = "DeleteRecipe")]
+        public void Delete([FromQuery] int Id)
+        {
 
-        //    _imageService.DeleteImage(Id);
+            _recipeItemService.DeleteRecipe(Id);
 
-        //}
+        }
 
         //[HttpPatch(Name = "ModifyImage")]
         //public void Patch([FromBody] ImageItem imageItem)

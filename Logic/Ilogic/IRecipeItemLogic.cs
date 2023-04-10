@@ -10,5 +10,6 @@ namespace Logic.Ilogic
     public interface IRecipeItemLogic
     {
         int InsertRecipe(RecipeItem recipeItem);
+        void DeleteRecipe(int id);
     }
 }

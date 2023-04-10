@@ -33,7 +33,7 @@ namespace API.Controllers
             return _userSecurityService.GenerateAuthorizationToken(loginRequest.UserName, loginRequest.UserPassword);
         }
 
-        [EndpointAuthorize(AllowedUserRols = "Administrador")]
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "InsertUser")]
         public int InsertUser([FromBody] NewUserRequest newUserRequest)
         {
@@ -61,7 +61,7 @@ namespace API.Controllers
             _userService.DeleteUser(id);
         }
 
-        [EndpointAuthorize(AllowedUserRols = "Administrador, Operario")]
+        [EndpointAuthorize(AllowedUserRols = "Administrador")]
         [HttpGet(Name = "GetUsersByCriteria")]
         public List<UserItem> GetByCriteria([FromQuery] UserFilter userFilter)
         {

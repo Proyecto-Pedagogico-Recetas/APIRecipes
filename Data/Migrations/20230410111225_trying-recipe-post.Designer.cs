@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ServiceContext))]
-    partial class ServiceContextModelSnapshot : ModelSnapshot
+    [Migration("20230410111225_trying-recipe-post")]
+    partial class tryingrecipepost
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -68,12 +71,7 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RecipeItemId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("RecipeItemId");
 
                     b.ToTable("Ingredients", (string)null);
                 });
@@ -220,6 +218,9 @@ namespace Data.Migrations
                     b.Property<int>("RecipeId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("RecipeItemId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Unit")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -230,14 +231,9 @@ namespace Data.Migrations
 
                     b.HasIndex("RecipeId");
 
-                    b.ToTable("Recipe_Ingredients", (string)null);
-                });
+                    b.HasIndex("RecipeItemId");
 
-            modelBuilder.Entity("Entities.Entities.IngredientItem", b =>
-                {
-                    b.HasOne("Entities.Entities.RecipeItem", null)
-                        .WithMany("Ingredients")
-                        .HasForeignKey("RecipeItemId");
+                    b.ToTable("Recipe_Ingredients", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Entities.RecipeItem", b =>
@@ -286,6 +282,10 @@ namespace Data.Migrations
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Entities.Entities.RecipeItem", null)
+                        .WithMany("Ingredients")
+                        .HasForeignKey("RecipeItemId");
                 });
 
             modelBuilder.Entity("Entities.Entities.RecipeItem", b =>
