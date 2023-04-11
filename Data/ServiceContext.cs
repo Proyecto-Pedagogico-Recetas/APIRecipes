@@ -42,6 +42,7 @@ namespace Data
             builder.Entity<IngredientItem>(entity => {
                 entity.ToTable("Ingredients");
                 builder.Entity<IngredientItem>().HasKey(p => p.Id);
+                builder.Entity<IngredientItem>().HasIndex(i => i.Ingredient).IsUnique();
             });
 
             builder.Entity<CategoryItem>(entity => {

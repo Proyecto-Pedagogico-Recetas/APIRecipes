@@ -40,9 +40,9 @@ namespace Logic.Logic
 
                 var recipeIngredient = new Recipe_Ingredient
                 {
-                   
-                    //Name = ingredient.Name,
-                    //RecipeId = recipeItem.Id,
+
+                    RecipeName = recipeData.Name,
+                    IngredientName= ingredientToAdd.Ingredient,
                     IngredientId = ingredientToAdd.Id,
                     RecipeId = recipeData.Id,
                     Amount = ingredient.Amount,
