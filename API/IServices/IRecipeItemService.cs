@@ -1,10 +1,11 @@
 ﻿using Entities.Entities;
+using Resources.RequestModels;
 
 namespace API.IServices
 {
     public interface IRecipeItemService
     {
-        int InsertRecipe(RecipeItem recipeItem);
+        int InsertRecipe(RecipeRequest recipeRequest);
         void DeleteRecipe(int id);
     }
 }

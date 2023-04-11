@@ -64,16 +64,11 @@ namespace Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Ingredient")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RecipeItemId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("RecipeItemId");
 
                     b.ToTable("Ingredients", (string)null);
                 });
@@ -93,12 +88,12 @@ namespace Data.Migrations
                     b.Property<int>("Category")
                         .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("Instructions")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsActive")
                         .HasColumnType("bit");
@@ -233,13 +228,6 @@ namespace Data.Migrations
                     b.ToTable("Recipe_Ingredients", (string)null);
                 });
 
-            modelBuilder.Entity("Entities.Entities.IngredientItem", b =>
-                {
-                    b.HasOne("Entities.Entities.RecipeItem", null)
-                        .WithMany("Ingredients")
-                        .HasForeignKey("RecipeItemId");
-                });
-
             modelBuilder.Entity("Entities.Entities.RecipeItem", b =>
                 {
                     b.HasOne("Entities.Entities.CategoryItem", null)
@@ -286,11 +274,6 @@ namespace Data.Migrations
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("Entities.Entities.RecipeItem", b =>
-                {
-                    b.Navigation("Ingredients");
                 });
 #pragma warning restore 612, 618
         }

@@ -3,6 +3,7 @@ using API.IServices;
 using Data;
 using Entities.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Resources.RequestModels;
 using System.Web.Http.Cors;
 
 namespace API.Controllers
@@ -22,12 +23,12 @@ namespace API.Controllers
 
         }
 
-        [EndpointAuthorize(AllowedUserRols = "Administrador, Operario")]
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "InsertRecipe")]
-        public int Post([FromBody] RecipeItem recipeItem)
+        public int Post([FromBody] RecipeRequest recipeRequest)
         {
 
-            return _recipeItemService.InsertRecipe(recipeItem);
+            return _recipeItemService.InsertRecipe(recipeRequest);
         }
 
         [EndpointAuthorize(AllowedUserRols = "Administrador")]

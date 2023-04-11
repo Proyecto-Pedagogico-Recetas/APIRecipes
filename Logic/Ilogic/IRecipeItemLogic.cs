@@ -1,4 +1,5 @@
 ﻿using Entities.Entities;
+using Resources.RequestModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Logic.Ilogic
 {
     public interface IRecipeItemLogic
     {
-        int InsertRecipe(RecipeItem recipeItem);
+        int InsertRecipe(RecipeRequest recipeRequest);
         void DeleteRecipe(int id);
     }
 }

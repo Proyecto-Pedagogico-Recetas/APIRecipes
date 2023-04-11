@@ -1,6 +1,7 @@
 ﻿using API.IServices;
 using Entities.Entities;
 using Logic.Ilogic;
+using Resources.RequestModels;
 
 namespace API.Services
 {
@@ -13,10 +14,10 @@ namespace API.Services
             _recipeItemLogic = recipeItemLogic;
         }
 
-        public int InsertRecipe(RecipeItem recipeItem)
+        public int InsertRecipe(RecipeRequest recipeRequest)
         {
-            _recipeItemLogic.InsertRecipe(recipeItem);
-            return recipeItem.Id;
+            return _recipeItemLogic.InsertRecipe(recipeRequest);
+            
         }
 
         public void DeleteRecipe(int id)

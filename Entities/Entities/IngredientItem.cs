@@ -9,6 +9,6 @@ namespace Entities.Entities
     public class IngredientItem
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Ingredient { get; set; }
     }
 }
