@@ -352,6 +352,9 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
+              "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\Data.csproj"
+              },
               "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj": {
                 "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj"
               }

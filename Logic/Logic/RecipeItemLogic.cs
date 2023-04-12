@@ -35,6 +35,8 @@ namespace Logic.Logic
                     //Id = ingredient.Id,
                     Ingredient = ingredient.Ingredient
                 };
+                //var user = _serviceContext.Set<UserItem>()
+                //     .Where(u => u.UserName == userName).SingleOrDefault();
                 _serviceContext.Ingredients.Add(ingredientToAdd);
                 _serviceContext.SaveChanges();
 

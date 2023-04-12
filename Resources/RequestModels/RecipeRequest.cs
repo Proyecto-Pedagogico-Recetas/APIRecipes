@@ -1,4 +1,5 @@
-﻿using Entities.Entities;
+﻿using Data;
+using Entities.Entities;
 using Entities.Relations;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,7 @@ namespace Resources.RequestModels
         public int Category { get; set; }
         public string Author { get; set; }
         public List<IngredientRequest> Ingredients { get; set; }
+        public List<AlergenItem> Alergens { get; set; }
 
         public RecipeItem ToRecipeItem()
         {
@@ -24,6 +26,11 @@ namespace Resources.RequestModels
            recipeItem.IsActive = true;
             recipeItem.InsertDate = DateTime.Now;
             return recipeItem;
+        }
+
+        public List<AlergenItem> ToListAlergens()
+        {
+            return ServiceContext.
         }
 
     }

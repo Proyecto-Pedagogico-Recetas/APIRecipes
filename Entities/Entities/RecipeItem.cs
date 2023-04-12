@@ -12,6 +12,7 @@ namespace Entities.Entities
         public RecipeItem()
         {
             IsActive = true;
+            IsPublic= true;
             InsertDate = DateTime.Now;
 
         }
@@ -22,7 +23,9 @@ namespace Entities.Entities
         //public List<IngredientItem> Ingredients { get; set; }
         //public virtual List<Ingredient> Ingredientes {get; set;}
         public int Category { get; set; }
-        public string Author { get; set; }
+        public string? Author { get; set; }
+        public string? Observations { get; set; }
+        public string? Materials { get; set; }
         public bool IsActive { get; set; }
         public bool IsPublic { get; set; }
         public DateTime InsertDate { get; set; }

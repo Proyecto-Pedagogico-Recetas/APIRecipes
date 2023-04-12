@@ -10,5 +10,6 @@ namespace Entities.Entities
     {
         public int Id { get; set; }
         public string Ingredient { get; set; }
+      
     }
 }
