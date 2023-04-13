@@ -25,3 +25,5 @@ C:\Users\juanc\FactoriaF5-proyectos\Proyectos\ProyectoPedag\APIRecipes\Resources
 C:\Users\juanc\FactoriaF5-proyectos\Proyectos\ProyectoPedag\APIRecipes\Resources\bin\Debug\net6.0\Entities.pdb
 C:\Users\juanc\FactoriaF5-proyectos\Proyectos\ProyectoPedag\APIRecipes\Resources\obj\Debug\net6.0\Resources.csproj.CopyComplete
 C:\Users\juanc\FactoriaF5-proyectos\Proyectos\ProyectoPedag\APIRecipes\Resources\obj\Debug\net6.0\ref\Resources.dll
+C:\Users\juanc\FactoriaF5-proyectos\Proyectos\ProyectoPedag\APIRecipes\Resources\bin\Debug\net6.0\Data.dll
+C:\Users\juanc\FactoriaF5-proyectos\Proyectos\ProyectoPedag\APIRecipes\Resources\bin\Debug\net6.0\Data.pdb

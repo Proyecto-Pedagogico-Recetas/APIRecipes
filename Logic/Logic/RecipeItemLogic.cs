@@ -12,15 +12,17 @@ namespace Logic.Logic
     {
         public RecipeItemLogic(ServiceContext serviceContext) : base(serviceContext) { }
 
-        public int InsertRecipe (RecipeRequest recipeRequest)
+        public int InsertRecipe(RecipeRequest recipeRequest)
         {
             var recipeData = new RecipeItem
             {
-              
+
                 Name = recipeRequest.Name,
                 Instructions = recipeRequest.Instructions,
                 Category = recipeRequest.Category,
                 Author = recipeRequest.Author,
+                Materials= recipeRequest.Materials,
+                Observations=recipeRequest.Observations,
 
             };
             _serviceContext.Recipes.Add(recipeData);
@@ -32,54 +34,52 @@ namespace Logic.Logic
             {
                 var ingredientToAdd = new IngredientItem
                 {
-                    //Id = ingredient.Id,
+    
                     Ingredient = ingredient.Ingredient
                 };
-                //var user = _serviceContext.Set<UserItem>()
-                //     .Where(u => u.UserName == userName).SingleOrDefault();
                 _serviceContext.Ingredients.Add(ingredientToAdd);
                 _serviceContext.SaveChanges();
+
+
+
 
                 var recipeIngredient = new Recipe_Ingredient
                 {
 
-                    RecipeName = recipeData.Name,
                     IngredientName= ingredientToAdd.Ingredient,
+                    RecipeName = recipeData.Name,
                     IngredientId = ingredientToAdd.Id,
                     RecipeId = recipeData.Id,
                     Amount = ingredient.Amount,
                     Unit = ingredient.Unit
-                    //IngredientId = ingredient
+    
                 };
                 _serviceContext.Recipe_Ingredients.Add(recipeIngredient);
                 _serviceContext.SaveChanges();
 
             }
+            foreach (var alergen in recipeRequest.Alergens)
+            {
+                var alergenRecipe = new Recipe_Alergen
+                {
+                    AlergenId = alergen.Id,
+                    AlergenName = alergen.Name,
+                    RecipeId = recipeData.Id,
+                    RecipeName = recipeData.Name
+                };
+                _serviceContext.Recipe_Alergens.Add(alergenRecipe);
+                _serviceContext.SaveChanges();
+            }
 
 
-                //foreach (var amount in recipeItem.Ingredients)
-                //{
-                //    var recipeIngredient = new Recipe_Ingredient
-                //    {
-                //        RecipeId = recipeItem.Id,
-                //        //IngredientId = ingredient
-                //    };
-                //    _serviceContext.Recipe_Ingredients.Add(recipeIngredient);
-                //}
 
 
-
-                //await _context.SaveChangesAsync();
-
-                //return CreatedAtAction(nameof(GetRecipe), new { id = recipe.Id }, recipe);
-
-            
             _serviceContext.SaveChanges();
             return recipeData.Id;
-            } 
-           
-            
-        
+        }
+
+
+
 
         void IRecipeItemLogic.DeleteRecipe(int id)
         {

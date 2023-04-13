@@ -26,6 +26,7 @@ namespace Entities.Entities
         public string? Author { get; set; }
         public string? Observations { get; set; }
         public string? Materials { get; set; }
+        //public List<AlergenItem> Alergens
         public bool IsActive { get; set; }
         public bool IsPublic { get; set; }
         public DateTime InsertDate { get; set; }

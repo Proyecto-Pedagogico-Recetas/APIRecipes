@@ -197,8 +197,16 @@ namespace Data.Migrations
                     b.Property<int>("AlergenId")
                         .HasColumnType("int");
 
+                    b.Property<string>("AlergenName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("RecipeId")
                         .HasColumnType("int");
+
+                    b.Property<string>("RecipeName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
