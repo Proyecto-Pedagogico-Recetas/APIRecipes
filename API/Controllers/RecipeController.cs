@@ -31,13 +31,24 @@ namespace API.Controllers
             return _recipeItemService.InsertRecipe(recipeRequest);
         }
 
-        [EndpointAuthorize(AllowedUserRols = "Administrador")]
+        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
+        [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpDelete(Name = "DeleteRecipe")]
         public void Delete([FromQuery] int Id)
         {
 
             _recipeItemService.DeleteRecipe(Id);
 
+        }
+
+        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
+        [EndpointAuthorize(AllowsAnonymous = true)]
+
+        [HttpGet(Name = "GetAllRecipes")]
+        public async Task<RecipeItem> GetRecipes(int recipeId)
+        {
+
+            return await _recipeItemService.GetRecipes(recipeId);
         }
 
         //[HttpPatch(Name = "ModifyImage")]
@@ -48,12 +59,6 @@ namespace API.Controllers
 
         //}
 
-        //[HttpGet(Name = "GetImagesByCriteria")]
-        //public List<ImageItem> GetImageByCriteria([FromQuery] string Category)
-        //{
-
-        //    return _imageService.GetImageByCriteria(Category);
-        //}
 
         //[HttpGet(Name = "GetAllImages")]
         //public List<ImageItem> GetAll()

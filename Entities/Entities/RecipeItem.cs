@@ -1,8 +1,10 @@
 ﻿using Entities.Relations;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Entities.Entities
@@ -30,6 +32,8 @@ namespace Entities.Entities
         public bool IsActive { get; set; }
         public bool IsPublic { get; set; }
         public DateTime InsertDate { get; set; }
+        //[JsonIgnore]
+        public virtual ICollection<Recipe_Alergen> Alergens { get; set; }
 
 
     }

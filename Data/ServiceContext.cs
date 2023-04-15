@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entities.Entities;
 using Entities.Relations;
+using System.Reflection.Emit;
 
 namespace Data
 {
@@ -31,7 +32,9 @@ namespace Data
             builder.Entity<RecipeItem>(entity => {
                 entity.ToTable("Recipes");
                 builder.Entity<RecipeItem>().HasKey(p => p.Id);
+                
                 entity.HasOne<CategoryItem>().WithMany().HasForeignKey(r => r.Category);
+             
             });
 
             builder.Entity<AlergenItem>(entity => {
@@ -69,8 +72,19 @@ namespace Data
             builder.Entity<Recipe_Alergen>(entity => {
                 entity.ToTable("Recipe_Alergens");
                 builder.Entity<Recipe_Alergen>().HasKey(p => p.Id);
-                entity.HasOne<RecipeItem>().WithMany().HasForeignKey(r => r.RecipeId);
-                entity.HasOne<AlergenItem>().WithMany().HasForeignKey(r => r.AlergenId);
+                //builder.Entity<Recipe_Alergen>().HasNoKey();
+                // estas las quito para probar el virtual de Gepeto
+                //entity.HasOne<RecipeItem>().WithMany().HasForeignKey(r => r.RecipeId);
+                //entity.HasOne<AlergenItem>().WithMany().HasForeignKey(r => r.AlergenId);
+                builder.Entity<Recipe_Alergen>().HasOne(ra => ra.Recipes)
+                              .WithMany(r => r.Alergens)
+                              .HasForeignKey(ra => ra.RecipeId);
+                builder.Entity<Recipe_Alergen>().HasOne(ra => ra.Alergens)
+                             .WithMany(a => a.Alergens)
+                             .HasForeignKey(ra => ra.AlergenId);
+
+
+
             });
 
             builder.Entity<Recipe_Ingredient>(entity => {
@@ -86,6 +100,10 @@ namespace Data
             //    entity.HasOne<UserRolItem>().WithMany().HasForeignKey(r => r.IdRol);
             //    entity.HasOne<AuthorizationItem>().WithMany().HasForeignKey(r => r.IdAuthorization);
             //});
+            foreach (var relationship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            {
+                relationship.DeleteBehavior = DeleteBehavior.Restrict;
+            }
 
 
         }

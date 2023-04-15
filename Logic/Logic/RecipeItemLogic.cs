@@ -5,6 +5,8 @@ using Logic.Ilogic;
 using Logic.Logic;
 using Microsoft.EntityFrameworkCore;
 using Resources.RequestModels;
+ using System.Data;
+using System.Reflection.Metadata.Ecma335;
 
 namespace Logic.Logic
 {
@@ -90,6 +92,56 @@ namespace Logic.Logic
 
             _serviceContext.SaveChanges();
         }
+
+        public async Task<RecipeItem> GetRecipes(int recipeId)
+        {
+
+
+
+            //var recipes = _serviceContext.Recipes.Include(p => p.Alergens).ToList();
+            //return recipes;
+
+            //var recipeItem = _serviceContext.Set<RecipeItem>()
+            //    .Include(r => r.Alergens)
+            //    .Where(r => r.Id == id).FirstOrDefault();
+            //var alergenList = recipeItem.Alergens;
+
+
+
+
+
+            return await _serviceContext.Recipes
+                    .Include(er => er.Alergens)
+                    .ThenInclude(era => era.Alergens)
+                    .FirstOrDefaultAsync(er => er.Id == recipeId);
+
+        }
     }
 }
 
+
+
+//var recipeData =  _serviceContext.Set<RecipeItem>().ToList();
+//var alergens = _serviceContext.Set<Recipe_Alergen>().Where
+
+//foreach (var recipe in recipeData) 
+//{
+//  recipeRequest.Name= recipe.Name;
+//  recipeRequest.Alergens = 
+//}
+
+
+
+
+
+//{
+//    List<RecipeItem> recipes;
+//    using (var context = new ServiceContext(Recipe))
+//    {
+//        recipes = _serviceContext.Recipes
+//            .Include(r => r.Category)
+
+//            .ToList();
+//    }
+//    return recipes;
+//}

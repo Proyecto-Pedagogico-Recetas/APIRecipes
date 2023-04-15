@@ -260,7 +260,7 @@ namespace Data.Migrations
                     b.HasOne("Entities.Entities.CategoryItem", null)
                         .WithMany()
                         .HasForeignKey("Category")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
@@ -269,23 +269,27 @@ namespace Data.Migrations
                     b.HasOne("Entities.Entities.UserRolItem", null)
                         .WithMany()
                         .HasForeignKey("IdRol")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
             modelBuilder.Entity("Entities.Relations.Recipe_Alergen", b =>
                 {
-                    b.HasOne("Entities.Entities.AlergenItem", null)
-                        .WithMany()
+                    b.HasOne("Entities.Entities.AlergenItem", "Alergens")
+                        .WithMany("Alergens")
                         .HasForeignKey("AlergenId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Entities.Entities.RecipeItem", null)
-                        .WithMany()
+                    b.HasOne("Entities.Entities.RecipeItem", "Recipes")
+                        .WithMany("Alergens")
                         .HasForeignKey("RecipeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Alergens");
+
+                    b.Navigation("Recipes");
                 });
 
             modelBuilder.Entity("Entities.Relations.Recipe_Ingredient", b =>
@@ -293,14 +297,24 @@ namespace Data.Migrations
                     b.HasOne("Entities.Entities.IngredientItem", null)
                         .WithMany()
                         .HasForeignKey("IngredientId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Entities.Entities.RecipeItem", null)
                         .WithMany()
                         .HasForeignKey("RecipeId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Entities.Entities.AlergenItem", b =>
+                {
+                    b.Navigation("Alergens");
+                });
+
+            modelBuilder.Entity("Entities.Entities.RecipeItem", b =>
+                {
+                    b.Navigation("Alergens");
                 });
 #pragma warning restore 612, 618
         }

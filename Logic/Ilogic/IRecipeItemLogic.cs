@@ -12,5 +12,7 @@ namespace Logic.Ilogic
     {
         int InsertRecipe(RecipeRequest recipeRequest);
         void DeleteRecipe(int id);
+
+        public  Task<RecipeItem> GetRecipes(int recipeId);
     }
 }
