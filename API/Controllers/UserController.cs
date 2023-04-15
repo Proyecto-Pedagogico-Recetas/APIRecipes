@@ -54,7 +54,8 @@ namespace API.Controllers
             _userService.UpdateUser(userItem);
         }
 
-        [EndpointAuthorize(AllowedUserRols = "Administrador")]
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [HttpDelete(Name = "DeleteUser")]
         public void Delete([FromQuery] int id)
         {
