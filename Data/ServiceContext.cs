@@ -82,6 +82,7 @@ namespace Data
                 builder.Entity<Recipe_Alergen>().HasOne(ra => ra.Alergens)
                              .WithMany(a => a.Alergens)
                              .HasForeignKey(ra => ra.AlergenId);
+                
 
 
 
@@ -90,8 +91,38 @@ namespace Data
             builder.Entity<Recipe_Ingredient>(entity => {
                 entity.ToTable("Recipe_Ingredients");
                 builder.Entity<Recipe_Ingredient>().HasKey(p => p.Id);
-                entity.HasOne<RecipeItem>().WithMany().HasForeignKey(r => r.RecipeId);
-                entity.HasOne<IngredientItem>().WithMany().HasForeignKey(r => r.IngredientId);
+
+                builder.Entity<Recipe_Ingredient>().HasOne(ri => ri.Recipes)
+                .WithMany(r => r.Ingredients)
+                .HasForeignKey(ri => ri.RecipeId);
+
+                builder.Entity<Recipe_Ingredient>()
+                .HasOne(ri => ri.Ingredients)
+                .WithMany(i => i.Ingredients)
+                .HasForeignKey(ri => ri.IngredientId);
+                //entity.HasOne<RecipeItem>().WithMany().HasForeignKey(r => r.RecipeId);
+                //entity.HasOne<IngredientItem>().WithMany().HasForeignKey(r => r.IngredientId);
+
+
+
+                //  {
+                //    modelBuilder.Entity<EntityAB>()
+                //        .HasKey(e => e.Id);
+
+                //    modelBuilder.Entity<EntityAB>()
+                //        .HasOne(eab => eab.EntityA)
+                //        .WithMany(ea => ea.EntityABs)
+                //        .HasForeignKey(eab => eab.EntityAId);
+
+                //    modelBuilder.Entity<EntityAB>()
+                //        .HasOne(eab => eab.EntityB)
+                //        .WithMany(eb => eb.EntityABs)
+                //        .HasForeignKey(eab => eab.EntityBId);
+                //}
+
+
+
+
             });
 
             //builder.Entity<Rol_Authorization>(entity => {

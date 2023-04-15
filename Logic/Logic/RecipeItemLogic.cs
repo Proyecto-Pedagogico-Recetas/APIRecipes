@@ -113,7 +113,11 @@ namespace Logic.Logic
             return await _serviceContext.Recipes
                     .Include(er => er.Alergens)
                     .ThenInclude(era => era.Alergens)
+                    .Include(er => er.Ingredients)
+                    .ThenInclude(eri => eri.Ingredients)
                     .FirstOrDefaultAsync(er => er.Id == recipeId);
+                    
+                    
 
         }
     }

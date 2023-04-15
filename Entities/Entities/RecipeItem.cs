@@ -32,6 +32,7 @@ namespace Entities.Entities
         public bool IsActive { get; set; }
         public bool IsPublic { get; set; }
         public DateTime InsertDate { get; set; }
+        public virtual ICollection<Recipe_Ingredient> Ingredients { get; set; }
         //[JsonIgnore]
         public virtual ICollection<Recipe_Alergen> Alergens { get; set; }
 
