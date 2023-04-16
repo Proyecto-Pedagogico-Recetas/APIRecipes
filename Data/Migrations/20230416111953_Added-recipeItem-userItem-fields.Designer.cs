@@ -4,6 +4,7 @@ using Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Data.Migrations
 {
     [DbContext(typeof(ServiceContext))]
-    partial class ServiceContextModelSnapshot : ModelSnapshot
+    [Migration("20230416111953_Added-recipeItem-userItem-fields")]
+    partial class AddedrecipeItemuserItemfields
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -122,8 +125,6 @@ namespace Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("Category");
-
-                    b.HasIndex("PostedBy");
 
                     b.ToTable("Recipes", (string)null);
                 });
@@ -275,12 +276,6 @@ namespace Data.Migrations
                     b.HasOne("Entities.Entities.CategoryItem", null)
                         .WithMany()
                         .HasForeignKey("Category")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("Entities.Entities.UserItem", null)
-                        .WithMany()
-                        .HasForeignKey("PostedBy")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });

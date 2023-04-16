@@ -14,6 +14,7 @@ namespace Entities.Entities
        
         public string UserName { get; set; }
         public string UserEmail { get; set; }
+        public int UserPhone { get; set; }
         public DateTime InsertDate { get; set; }
         public bool IsActive { get; set; }
         public string EncryptedPassword { get; set; }
