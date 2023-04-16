@@ -28,6 +28,7 @@ namespace Entities.Entities
         public string? Author { get; set; }
         public string? Observations { get; set; }
         public string? Materials { get; set; }
+        public int PostedBy { get; set; }
         //public List<AlergenItem> Alergens
         public bool IsActive { get; set; }
         public bool IsPublic { get; set; }
