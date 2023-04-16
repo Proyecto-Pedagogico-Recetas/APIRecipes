@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Logic\\Logic.csproj": {}
+    "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Logic\\Logic.csproj": {}
   },
   "projects": {
-    "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\Data.csproj": {
+    "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\juanc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\obj\\",
+        "projectPath": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Data\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\juanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -32,8 +28,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj"
+              "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Entities\\Entities.csproj"
               }
             }
           }
@@ -86,21 +82,17 @@
         }
       }
     },
-    "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj": {
+    "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Entities\\Entities.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Entities\\Entities.csproj",
         "projectName": "Entities",
-        "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj",
-        "packagesPath": "C:\\Users\\juanc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\obj\\",
+        "projectPath": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Entities\\Entities.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Entities\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\juanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -159,21 +151,17 @@
         }
       }
     },
-    "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Logic\\Logic.csproj": {
+    "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Logic\\Logic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Logic\\Logic.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Logic\\Logic.csproj",
         "projectName": "Logic",
-        "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Logic\\Logic.csproj",
-        "packagesPath": "C:\\Users\\juanc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Logic\\obj\\",
+        "projectPath": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Logic\\Logic.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Logic\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\juanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -187,14 +175,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\Data.csproj": {
-                "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\Data.csproj"
+              "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Data\\Data.csproj"
               },
-              "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj"
+              "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Entities\\Entities.csproj"
               },
-              "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Resources\\Resources.csproj": {
-                "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Resources\\Resources.csproj"
+              "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Resources\\Resources.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Resources\\Resources.csproj"
               }
             }
           }
@@ -234,21 +222,17 @@
         }
       }
     },
-    "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Resources\\Resources.csproj": {
+    "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Resources\\Resources.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Resources\\Resources.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Resources\\Resources.csproj",
         "projectName": "Resources",
-        "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Resources\\Resources.csproj",
-        "packagesPath": "C:\\Users\\juanc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Resources\\obj\\",
+        "projectPath": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Resources\\Resources.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Resources\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\juanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -262,11 +246,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\Data.csproj": {
-                "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Data\\Data.csproj"
-              },
-              "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj": {
-                "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Entities\\Entities.csproj"
+              "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\APIRecipes\\Entities\\Entities.csproj"
               }
             }
           }

@@ -1,4 +1,4 @@
-﻿using Data;
+﻿
 using Entities.Entities;
 using Entities.Relations;
 using System;
@@ -28,10 +28,10 @@ namespace Resources.RequestModels
             return recipeItem;
         }
 
-        public List<AlergenItem> ToListAlergens()
-        {
-            return ServiceContext.
-        }
+        //public List<AlergenItem> ToListAlergens()
+        //{
+        //    return ServiceContext.
+        //}
 
     }
     
