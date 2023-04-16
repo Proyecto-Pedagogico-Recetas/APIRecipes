@@ -19,6 +19,7 @@ namespace Resources.RequestModels
             userItem.UserName = UserName;
             userItem.InsertDate = DateTime.Now;
             userItem.IsActive = true;
+            userItem.UserEmail= UserEmail;
 
             return userItem;
         }
