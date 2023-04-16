@@ -116,9 +116,14 @@ namespace Data.Migrations
                     b.Property<string>("Observations")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("PostedBy")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Category");
+
+                    b.HasIndex("PostedBy");
 
                     b.ToTable("Recipes", (string)null);
                 });
@@ -150,6 +155,10 @@ namespace Data.Migrations
 
                     b.Property<DateTime>("TokenExpireDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<string>("UserEmail")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -208,6 +217,9 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Recipe_AlergenId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AlergenId");
@@ -262,6 +274,12 @@ namespace Data.Migrations
                         .HasForeignKey("Category")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.HasOne("Entities.Entities.UserItem", null)
+                        .WithMany()
+                        .HasForeignKey("PostedBy")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Entities.Entities.UserItem", b =>
@@ -294,17 +312,21 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Entities.Relations.Recipe_Ingredient", b =>
                 {
-                    b.HasOne("Entities.Entities.IngredientItem", null)
-                        .WithMany()
+                    b.HasOne("Entities.Entities.IngredientItem", "Ingredients")
+                        .WithMany("Ingredients")
                         .HasForeignKey("IngredientId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Entities.Entities.RecipeItem", null)
-                        .WithMany()
+                    b.HasOne("Entities.Entities.RecipeItem", "Recipes")
+                        .WithMany("Ingredients")
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Ingredients");
+
+                    b.Navigation("Recipes");
                 });
 
             modelBuilder.Entity("Entities.Entities.AlergenItem", b =>
@@ -312,9 +334,16 @@ namespace Data.Migrations
                     b.Navigation("Alergens");
                 });
 
+            modelBuilder.Entity("Entities.Entities.IngredientItem", b =>
+                {
+                    b.Navigation("Ingredients");
+                });
+
             modelBuilder.Entity("Entities.Entities.RecipeItem", b =>
                 {
                     b.Navigation("Alergens");
+
+                    b.Navigation("Ingredients");
                 });
 #pragma warning restore 612, 618
         }

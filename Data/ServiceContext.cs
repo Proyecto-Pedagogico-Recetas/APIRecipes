@@ -34,6 +34,8 @@ namespace Data
                 builder.Entity<RecipeItem>().HasKey(p => p.Id);
                 
                 entity.HasOne<CategoryItem>().WithMany().HasForeignKey(r => r.Category);
+                entity.HasOne<UserItem>().WithMany().HasForeignKey(r => r.PostedBy);
+
              
             });
 
