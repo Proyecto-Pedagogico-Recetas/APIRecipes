@@ -33,26 +33,29 @@ namespace API.Controllers
             return _userSecurityService.GenerateAuthorizationToken(loginRequest.UserName, loginRequest.UserPassword);
         }
 
-        [EndpointAuthorize(AllowsAnonymous = true)]
+
+        [EndpointAuthorize(AllowedUserRols = "Administrador")]
+        //[EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "InsertUser")]
         public int InsertUser([FromBody] NewUserRequest newUserRequest)
         {
             return _userService.InsertUser(newUserRequest);
         }
 
-        [EndpointAuthorize(AllowedUserRols = "Administrador, Operario")]
+        [EndpointAuthorize(AllowedUserRols = "Administrador")]
         [HttpGet(Name = "GetAllUsers")]
         public List<UserItem> GetAll()
         {
             return _userService.GetAllUsers();
         }
 
-        [EndpointAuthorize(AllowedUserRols = "Administrador")]
-        [HttpPatch(Name = "ModifyUser")]
-        public void Patch([FromBody] UserItem userItem)
-        {
-            _userService.UpdateUser(userItem);
-        }
+        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
+        //[HttpPatch(Name = "ModifyUser")]
+        //public void Patch([FromBody] UserItem userItem)
+        //{
+        //    _userService.UpdateUser(userItem);
+        //}
+
 
         [EndpointAuthorize(AllowedUserRols = "Administrador")]
         [HttpDelete(Name = "DeleteUser")]
@@ -61,11 +64,11 @@ namespace API.Controllers
             _userService.DeleteUser(id);
         }
 
-        [EndpointAuthorize(AllowedUserRols = "Administrador")]
-        [HttpGet(Name = "GetUsersByCriteria")]
-        public List<UserItem> GetByCriteria([FromQuery] UserFilter userFilter)
-        {
-            return _userService.GetUsersByCriteria(userFilter);
-        }
+        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
+        //[HttpGet(Name = "GetUsersByCriteria")]
+        //public List<UserItem> GetByCriteria([FromQuery] UserFilter userFilter)
+        //{
+        //    return _userService.GetUsersByCriteria(userFilter);
+        //}
     }
 }
