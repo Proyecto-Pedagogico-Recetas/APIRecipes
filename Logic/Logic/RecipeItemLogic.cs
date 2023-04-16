@@ -25,6 +25,7 @@ namespace Logic.Logic
                 Author = recipeRequest.Author,
                 Materials= recipeRequest.Materials,
                 Observations=recipeRequest.Observations,
+                PostedBy=recipeRequest.PostedBy
 
             };
             _serviceContext.Recipes.Add(recipeData);

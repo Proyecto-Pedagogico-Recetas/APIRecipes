@@ -34,6 +34,7 @@ namespace Resources.RequestModels
         public string Author { get; set; }
         public string? Observations { get; set; }
         public string? Materials { get; set; }
+        public int PostedBy { get; set; }
         public List<IngredientRequest> Ingredients { get; set; }
         public List<AlergenRequest> Alergens { get; set; }
 

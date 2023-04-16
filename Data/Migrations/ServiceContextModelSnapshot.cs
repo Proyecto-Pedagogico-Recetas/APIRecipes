@@ -116,14 +116,14 @@ namespace Data.Migrations
                     b.Property<string>("Observations")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PostedBy")
+                    b.Property<int>("PostedByUser")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("Category");
 
-                    b.HasIndex("PostedBy");
+                    b.HasIndex("PostedByUser");
 
                     b.ToTable("Recipes", (string)null);
                 });
@@ -280,7 +280,7 @@ namespace Data.Migrations
 
                     b.HasOne("Entities.Entities.UserItem", null)
                         .WithMany()
-                        .HasForeignKey("PostedBy")
+                        .HasForeignKey("PostedByUser")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
