@@ -34,6 +34,7 @@ namespace Entities.Entities
         public DateTime InsertDate { get; set; }
         public virtual ICollection<Recipe_Ingredient> Ingredients { get; set; }
         //[JsonIgnore]
+        [ForeignKey("Recipe_AlergenId")]
         public virtual ICollection<Recipe_Alergen> Alergens { get; set; }
 
 

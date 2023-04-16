@@ -208,6 +208,9 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Recipe_AlergenId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("AlergenId");
@@ -294,17 +297,21 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Entities.Relations.Recipe_Ingredient", b =>
                 {
-                    b.HasOne("Entities.Entities.IngredientItem", null)
-                        .WithMany()
+                    b.HasOne("Entities.Entities.IngredientItem", "Ingredients")
+                        .WithMany("Ingredients")
                         .HasForeignKey("IngredientId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Entities.Entities.RecipeItem", null)
-                        .WithMany()
+                    b.HasOne("Entities.Entities.RecipeItem", "Recipes")
+                        .WithMany("Ingredients")
                         .HasForeignKey("RecipeId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
+
+                    b.Navigation("Ingredients");
+
+                    b.Navigation("Recipes");
                 });
 
             modelBuilder.Entity("Entities.Entities.AlergenItem", b =>
@@ -312,9 +319,16 @@ namespace Data.Migrations
                     b.Navigation("Alergens");
                 });
 
+            modelBuilder.Entity("Entities.Entities.IngredientItem", b =>
+                {
+                    b.Navigation("Ingredients");
+                });
+
             modelBuilder.Entity("Entities.Entities.RecipeItem", b =>
                 {
                     b.Navigation("Alergens");
+
+                    b.Navigation("Ingredients");
                 });
 #pragma warning restore 612, 618
         }
