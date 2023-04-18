@@ -63,6 +63,9 @@ builder.Services.AddScoped<ICategoryItemService, CategoryItemService>();
 builder.Services.AddScoped<IAlergenItemLogic, AlergenItemLogic>();
 builder.Services.AddScoped<IAlergenItemService, AlergenItemService>();
 
+builder.Services.AddScoped<IOrderItemLogic, OrderItemLogic>();
+builder.Services.AddScoped<IOrderItemService, OrderItemService>();
+
 
 builder.Services.AddDbContext<ServiceContext>(
         options => options.UseSqlServer("name=ConnectionStrings:ServiceContext"));

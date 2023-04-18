@@ -22,21 +22,24 @@ namespace Data
         public DbSet<UserItem> Users { get; set; }
         public DbSet<UserRolItem> RolType { get; set; }
         //public DbSet<AuthorizationItem> Authorizations { get; set; }
+        public DbSet<OrderItem> Orders { get; set; }
 
         public DbSet<Recipe_Alergen> Recipe_Alergens { get; set; }
         public DbSet<Recipe_Ingredient> Recipe_Ingredients { get; set; }
         //public DbSet<Rol_Authorization> Rol_Authorization{ get; set; }
+
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<RecipeItem>(entity => {
                 entity.ToTable("Recipes");
                 builder.Entity<RecipeItem>().HasKey(p => p.Id);
-                
+
                 entity.HasOne<CategoryItem>().WithMany().HasForeignKey(r => r.Category);
                 entity.HasOne<UserItem>().WithMany().HasForeignKey(r => r.PostedBy);
 
-             
+
             });
 
             builder.Entity<AlergenItem>(entity => {
@@ -47,6 +50,14 @@ namespace Data
             builder.Entity<IngredientItem>(entity => {
                 entity.ToTable("Ingredients");
                 builder.Entity<IngredientItem>().HasKey(p => p.Id);
+                builder.Entity<IngredientItem>().HasKey(p => p.Id);
+                entity.HasMany(i => i.Order)
+                    .WithOne(o => o.Ingredient)
+                    .HasForeignKey(o => o.IdIngredient);
+                //builder.Entity<IngredientItem>().HasMany(i => i.Order).WithOne(o => o.Ingredient).HasForeignKey(o => o.IdIngredient);
+
+
+
                 //builder.Entity<IngredientItem>().HasIndex(i => i.Ingredient).IsUnique();
             });
 
@@ -63,7 +74,18 @@ namespace Data
 
             builder.Entity<UserRolItem>(entity => {
                 entity.ToTable("RolType");
-                builder.Entity<UserRolItem>().HasKey(p => p.Id);
+                builder.Entity<UserRolItem>().HasKey(ur => ur.Id);
+            });
+
+            builder.Entity<OrderItem>(entity => {
+                entity.ToTable("Orders");
+                builder.Entity<OrderItem>().HasKey(p => p.Id);
+                entity.HasOne(o => o.Ingredient)
+    .WithMany(i => i.Order)
+    .HasForeignKey(o => o.IdIngredient);
+                //entity.HasOne(o => o.Ingredient).WithOne(i => i.Order).HasForeignKey<OrderItem>(o => o.IdIngredient);
+
+
             });
 
             //builder.Entity<AuthorizationItem>(entity => {
@@ -84,7 +106,7 @@ namespace Data
                 builder.Entity<Recipe_Alergen>().HasOne(ra => ra.Alergens)
                              .WithMany(a => a.Alergens)
                              .HasForeignKey(ra => ra.AlergenId);
-                
+
 
 
 
@@ -141,7 +163,7 @@ namespace Data
 
         }
     }
- 
+
     public class ServiceContextFactory : IDesignTimeDbContextFactory<ServiceContext>
     {
         public ServiceContext CreateDbContext(string[] args)

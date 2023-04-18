@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Entities.Entities
@@ -11,7 +12,7 @@ namespace Entities.Entities
     {
         public int Id { get; set; }
         public int IdRol { get; set; }
-       
+
         public string UserName { get; set; }
         public string UserEmail { get; set; }
         public int UserPhone { get; set; }
@@ -20,5 +21,9 @@ namespace Entities.Entities
         public string EncryptedPassword { get; set; }
         public string EncryptedToken { get; set; }
         public DateTime TokenExpireDate { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<OrderItem> Order { get; set; }
+
     }
 }

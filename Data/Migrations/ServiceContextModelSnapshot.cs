@@ -79,6 +79,45 @@ namespace Data.Migrations
                     b.ToTable("Ingredients", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Entities.OrderItem", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int>("IdIngredient")
+                        .HasColumnType("int");
+
+                    b.Property<int>("IdUser")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("InsertDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Unit")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdIngredient");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders", (string)null);
+                });
+
             modelBuilder.Entity("Entities.Entities.RecipeItem", b =>
                 {
                     b.Property<int>("Id")
@@ -116,14 +155,14 @@ namespace Data.Migrations
                     b.Property<string>("Observations")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("PostedByUser")
+                    b.Property<int>("PostedBy")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.HasIndex("Category");
 
-                    b.HasIndex("PostedByUser");
+                    b.HasIndex("PostedBy");
 
                     b.ToTable("Recipes", (string)null);
                 });
@@ -270,6 +309,25 @@ namespace Data.Migrations
                     b.ToTable("Recipe_Ingredients", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Entities.OrderItem", b =>
+                {
+                    b.HasOne("Entities.Entities.IngredientItem", "Ingredient")
+                        .WithMany("Order")
+                        .HasForeignKey("IdIngredient")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Entities.UserItem", "User")
+                        .WithMany("Order")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Ingredient");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Entities.Entities.RecipeItem", b =>
                 {
                     b.HasOne("Entities.Entities.CategoryItem", null)
@@ -280,7 +338,7 @@ namespace Data.Migrations
 
                     b.HasOne("Entities.Entities.UserItem", null)
                         .WithMany()
-                        .HasForeignKey("PostedByUser")
+                        .HasForeignKey("PostedBy")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
@@ -340,6 +398,8 @@ namespace Data.Migrations
             modelBuilder.Entity("Entities.Entities.IngredientItem", b =>
                 {
                     b.Navigation("Ingredients");
+
+                    b.Navigation("Order");
                 });
 
             modelBuilder.Entity("Entities.Entities.RecipeItem", b =>
@@ -347,6 +407,11 @@ namespace Data.Migrations
                     b.Navigation("Alergens");
 
                     b.Navigation("Ingredients");
+                });
+
+            modelBuilder.Entity("Entities.Entities.UserItem", b =>
+                {
+                    b.Navigation("Order");
                 });
 #pragma warning restore 612, 618
         }
