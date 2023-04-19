@@ -5,7 +5,7 @@ using Logic.Ilogic;
 using Logic.Logic;
 using Microsoft.EntityFrameworkCore;
 using Resources.RequestModels;
- using System.Data;
+using System.Data;
 using System.Reflection.Metadata.Ecma335;
 
 namespace Logic.Logic
@@ -15,18 +15,14 @@ namespace Logic.Logic
         public AlergenItemLogic (ServiceContext serviceContext) : base(serviceContext) { }
 
 
-
-        public List<AlergenItem>GetAlergens()
+        List<AlergenItem> IAlergenItemLogic.GetAlergens()
         {
 
 
 
             return _serviceContext.Alergens.ToList();
 
-
-
-
-        }
+         }
     }
 }
 

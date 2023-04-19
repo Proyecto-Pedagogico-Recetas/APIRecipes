@@ -16,7 +16,7 @@ namespace API.Services
         }
         public List<OrderItem> GetOrders()
         {
-           return _orderItemLogic.GetOrders();
+            return _orderItemLogic.GetOrders();
         }
 
         public async Task<OrderItem> InsertOrder(OrderRequest orderRequest)

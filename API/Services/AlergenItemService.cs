@@ -15,7 +15,7 @@ namespace API.Services
         }
         public List<AlergenItem> GetAlergens()
         {
-           return _alergenItemLogic.GetAlergens();
+            return _alergenItemLogic.GetAlergens();
         }
     }
 }

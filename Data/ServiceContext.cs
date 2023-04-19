@@ -50,7 +50,6 @@ namespace Data
             builder.Entity<IngredientItem>(entity => {
                 entity.ToTable("Ingredients");
                 builder.Entity<IngredientItem>().HasKey(p => p.Id);
-                builder.Entity<IngredientItem>().HasKey(p => p.Id);
                 entity.HasMany(i => i.Order)
                     .WithOne(o => o.Ingredient)
                     .HasForeignKey(o => o.IdIngredient);
@@ -81,8 +80,8 @@ namespace Data
                 entity.ToTable("Orders");
                 builder.Entity<OrderItem>().HasKey(p => p.Id);
                 entity.HasOne(o => o.Ingredient)
-    .WithMany(i => i.Order)
-    .HasForeignKey(o => o.IdIngredient);
+                .WithMany(i => i.Order)
+                .HasForeignKey(o => o.IdIngredient);
                 //entity.HasOne(o => o.Ingredient).WithOne(i => i.Order).HasForeignKey<OrderItem>(o => o.IdIngredient);
 
 

@@ -5,7 +5,7 @@ using Logic.Ilogic;
 using Logic.Logic;
 using Microsoft.EntityFrameworkCore;
 using Resources.RequestModels;
- using System.Data;
+using System.Data;
 using System.Reflection.Metadata.Ecma335;
 
 namespace Logic.Logic
@@ -23,7 +23,7 @@ namespace Logic.Logic
 
         public async Task<OrderItem> InsertOrder(OrderRequest orderRequest)
         {
-            
+
             //var user = _serviceContext.Users.FirstOrDefaultAsync(u => u.UserName == orderRequest.User);
             //var ingredient = _serviceContext.Ingredients.FirstOrDefaultAsync(i => i.Ingredient == orderRequest.Ingredient);
 
@@ -37,6 +37,8 @@ namespace Logic.Logic
                 IdIngredient = ingredient.Id,
                 Amount = orderRequest.Amount,
                 Unit = orderRequest.Unit,
+                User = user,
+                Ingredient = ingredient,
 
             };
 

@@ -20,7 +20,7 @@ namespace API.Controllers
         {
             _orderItemService = orderItemService;
             _serviceContext = serviceContext;
-            
+
         }
 
         [EndpointAuthorize(AllowsAnonymous = true)]
@@ -41,6 +41,9 @@ namespace API.Controllers
 
         //}
 
+
+
+
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetAllOrders")]
@@ -49,6 +52,10 @@ namespace API.Controllers
 
             return _orderItemService.GetOrders();
         }
+
+
+
+
 
         //[HttpPatch(Name = "ModifyImage")]
         //public void Patch([FromBody] ImageItem imageItem)

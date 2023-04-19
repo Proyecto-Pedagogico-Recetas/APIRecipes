@@ -12,7 +12,7 @@ namespace Resources.RequestModels
     public class OrderRequest
     {
 
-     
+
         public string User { get; set; }
         public string Ingredient { get; set; }
         public decimal Amount { get; set; }
