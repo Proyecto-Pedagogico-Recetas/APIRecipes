@@ -21,10 +21,10 @@ select * from RolType
 --select * from Rol_Authorization
 
 insert into Users
-(IdRol, [UserName], InsertDate, IsActive, EncryptedPassword, EncryptedToken, TokenExpireDate)
+(IdRol, [UserName], InsertDate, IsActive, EncryptedPassword, EncryptedToken, TokenExpireDate, UserEmail, UserPhone)
 
 values
-(1, 'Celia', GETDATE(), 1, '$2a$11$V6c1zrNzHljeiIQ81bLaoeogagZWvr2JUkUs8CHmWzHYJ6T2l0S5q', '', GETDATE())
+(1, 'Celia', GETDATE(), 1, '$2a$11$V6c1zrNzHljeiIQ81bLaoeogagZWvr2JUkUs8CHmWzHYJ6T2l0S5q', '', GETDATE(), 'garciacastillacelia@gmail.com', '622680228')
 
 select * from Users
 
