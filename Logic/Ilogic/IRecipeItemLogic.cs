@@ -13,6 +13,7 @@ namespace Logic.Ilogic
         int InsertRecipe(RecipeRequest recipeRequest);
         void DeleteRecipe(int id);
 
-        public  Task<RecipeItem> GetRecipes(int recipeId);
+        public  Task<RecipeItem> GetRecipe(int recipeId);
+        public List<RecipeItem> GetAllRecipes();
     }
 }

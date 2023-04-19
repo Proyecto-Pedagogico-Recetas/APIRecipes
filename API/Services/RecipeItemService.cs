@@ -25,9 +25,14 @@ namespace API.Services
             _recipeItemLogic.DeleteRecipe(id);
         }
 
-        public async Task<RecipeItem> GetRecipes(int recipeId)
+        public async Task<RecipeItem> GetRecipe(int recipeId)
         {
-            return await _recipeItemLogic.GetRecipes(recipeId);
+            return await _recipeItemLogic.GetRecipe(recipeId);
+        }
+
+        public List<RecipeItem> GetAllRecipes()
+        {
+            return _recipeItemLogic.GetAllRecipes();
         }
     }
 }

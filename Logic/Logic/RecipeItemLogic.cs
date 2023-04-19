@@ -23,9 +23,9 @@ namespace Logic.Logic
                 Instructions = recipeRequest.Instructions,
                 Category = recipeRequest.Category,
                 Author = recipeRequest.Author,
-                Materials= recipeRequest.Materials,
-                Observations=recipeRequest.Observations,
-                PostedBy=recipeRequest.PostedBy
+                Materials = recipeRequest.Materials,
+                Observations = recipeRequest.Observations,
+                PostedBy = recipeRequest.PostedBy
 
             };
             _serviceContext.Recipes.Add(recipeData);
@@ -37,7 +37,7 @@ namespace Logic.Logic
             {
                 var ingredientToAdd = new IngredientItem
                 {
-    
+
                     Ingredient = ingredient.Ingredient
                 };
                 _serviceContext.Ingredients.Add(ingredientToAdd);
@@ -49,13 +49,13 @@ namespace Logic.Logic
                 var recipeIngredient = new Recipe_Ingredient
                 {
 
-                    IngredientName= ingredientToAdd.Ingredient,
+                    IngredientName = ingredientToAdd.Ingredient,
                     RecipeName = recipeData.Name,
                     IngredientId = ingredientToAdd.Id,
                     RecipeId = recipeData.Id,
                     Amount = ingredient.Amount,
                     Unit = ingredient.Unit
-    
+
                 };
                 _serviceContext.Recipe_Ingredients.Add(recipeIngredient);
                 _serviceContext.SaveChanges();
@@ -94,10 +94,8 @@ namespace Logic.Logic
             _serviceContext.SaveChanges();
         }
 
-        public async Task<RecipeItem> GetRecipes(int recipeId)
+        public async Task<RecipeItem> GetRecipe(int recipeId)
         {
-
-
 
             //var recipes = _serviceContext.Recipes.Include(p => p.Alergens).ToList();
             //return recipes;
@@ -108,18 +106,21 @@ namespace Logic.Logic
             //var alergenList = recipeItem.Alergens;
 
 
-
-
-
             return await _serviceContext.Recipes
                     .Include(er => er.Alergens)
                     .ThenInclude(era => era.Alergens)
                     .Include(er => er.Ingredients)
                     .ThenInclude(eri => eri.Ingredients)
                     .FirstOrDefaultAsync(er => er.Id == recipeId);
-                    
-                    
 
+
+
+        }
+
+        public  List<RecipeItem> GetAllRecipes()
+        {
+            return  _serviceContext.Recipes.ToList();
+            
         }
     }
 }

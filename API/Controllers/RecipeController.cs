@@ -44,11 +44,20 @@ namespace API.Controllers
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
 
-        [HttpGet(Name = "GetAllRecipes")]
-        public async Task<RecipeItem> GetRecipes(int recipeId)
+        [HttpGet(Name = "GetRecipeById")]
+        public async Task<RecipeItem> GetRecipe(int recipeId)
         {
 
-            return await _recipeItemService.GetRecipes(recipeId);
+            return await _recipeItemService.GetRecipe(recipeId);
+        }
+
+        [EndpointAuthorize(AllowsAnonymous = true)]
+
+        [HttpGet(Name = "GetAllRecipes")]
+        public List<RecipeItem> GetAllRecipes()
+        {
+
+            return _recipeItemService.GetAllRecipes();
         }
 
         //[HttpPatch(Name = "ModifyImage")]
