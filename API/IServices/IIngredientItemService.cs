@@ -3,9 +3,12 @@ using Resources.RequestModels;
 
 namespace API.IServices
 {
-    public interface IAlergenItemService
+    public interface IIngredientItemService
     {
 
         List<AlergenItem> GetAlergens();
+
+        int InsertAlergen(AlergenRequest alergenRequest);
+
     }
 }

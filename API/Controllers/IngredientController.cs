@@ -10,25 +10,25 @@ namespace API.Controllers
 {
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     [Route("[controller]/[action]")]
-    public class AlergenController : ControllerBase
+    public class IngredientController : ControllerBase
     {
 
-        private readonly IIngredientItemService _alergenItemService;
+        private readonly IIngredientItemService _ingredientItemService;
         private readonly ServiceContext _serviceContext;
 
-        public AlergenController(IIngredientItemService alergenItemService, ServiceContext serviceContext)
+        public IngredientController(IIngredientItemService ingredientItemService, ServiceContext serviceContext)
         {
-            _alergenItemService = alergenItemService;
+            _ingredientItemService = ingredientItemService;
             _serviceContext = serviceContext;
 
         }
 
         [EndpointAuthorize(AllowsAnonymous = true)]
-        [HttpPost(Name = "InsertAlergen")]
-        public int Post([FromBody] AlergenRequest alergenRequest)
+        [HttpPost(Name = "InsertIngredient")]
+        public int Post([FromBody] IngredientRequest ingredientRequest)
         {
 
-            return _alergenItemService.InsertAlergen(alergenRequest);
+            return _ingredientItemService.InsertAlergen(ingredientRequest);
         }
 
         ////[EndpointAuthorize(AllowedUserRols = "Administrador")]
@@ -47,7 +47,7 @@ namespace API.Controllers
         public List<AlergenItem> GetAlergens()
         {
 
-            return _alergenItemService.GetAlergens();
+            return _ingredientItemService.GetAlergens();
         }
 
         //[HttpPatch(Name = "ModifyImage")]

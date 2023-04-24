@@ -15,7 +15,7 @@ namespace Logic.Logic
         public AlergenItemLogic (ServiceContext serviceContext) : base(serviceContext) { }
 
 
-        List<AlergenItem> IAlergenItemLogic.GetAlergens()
+        public List<AlergenItem> GetAlergens()
         {
 
 
@@ -23,6 +23,20 @@ namespace Logic.Logic
             return _serviceContext.Alergens.ToList();
 
          }
+
+        public int InsertAlergen(AlergenRequest alergenRequest)
+        {
+            
+            var newAlergen = new AlergenItem
+            {
+                Id = alergenRequest.Id,
+                Name = alergenRequest.Name,
+            };
+
+            _serviceContext.Alergens.Add(newAlergen);
+            _serviceContext.SaveChanges();
+            return newAlergen.Id;
+        }
     }
 }
 
