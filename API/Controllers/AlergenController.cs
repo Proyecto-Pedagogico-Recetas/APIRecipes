@@ -25,10 +25,10 @@ namespace API.Controllers
 
         //[EndpointAuthorize(AllowsAnonymous = true)]
         //[HttpPost(Name = "InsertRecipe")]
-        //public int Post([FromBody] RecipeRequest recipeRequest)
+        //public int Post([FromBody] AlergenRequest alergenRequest)
         //{
 
-        //    return _recipeItemService.InsertRecipe(recipeRequest);
+        //    return _alergenItemService.InsertAlergen(alergenRequest);
         //}
 
         ////[EndpointAuthorize(AllowedUserRols = "Administrador")]

@@ -5,11 +5,11 @@ namespace API.IServices
 {
     public interface IRecipeItemService
     {
-        int InsertRecipe(RecipeRequest recipeRequest);
+        public Task InsertRecipe(RecipeRequest recipeRequest);
         void DeleteRecipe(int id);
 
         public Task<RecipeItem> GetRecipe(int recipeId);
 
-        public List<RecipeItem> GetAllRecipes();
+        public Task<List<RecipeItem>> GetAllRecipes();
     }
 }

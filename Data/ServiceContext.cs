@@ -36,7 +36,7 @@ namespace Data
                 entity.ToTable("Recipes");
                 builder.Entity<RecipeItem>().HasKey(p => p.Id);
 
-                entity.HasOne<CategoryItem>().WithMany().HasForeignKey(r => r.Category);
+                //entity.HasOne<CategoryItem>().WithMany().HasForeignKey(r => r.Category);
                 entity.HasOne<UserItem>().WithMany().HasForeignKey(r => r.PostedBy);
 
 
@@ -128,6 +128,8 @@ namespace Data
 
 
 
+
+
                 //  {
                 //    modelBuilder.Entity<EntityAB>()
                 //        .HasKey(e => e.Id);
@@ -174,6 +176,7 @@ namespace Data
             var connectionString = config.GetConnectionString("ServiceContext");
             var optionsBuilder = new DbContextOptionsBuilder<ServiceContext>();
             optionsBuilder.UseSqlServer(config.GetConnectionString("ServiceContext"));
+            optionsBuilder.EnableSensitiveDataLogging();
 
             return new ServiceContext(optionsBuilder.Options);
         }

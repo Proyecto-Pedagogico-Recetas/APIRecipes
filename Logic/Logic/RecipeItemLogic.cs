@@ -14,53 +14,60 @@ namespace Logic.Logic
     {
         public RecipeItemLogic(ServiceContext serviceContext) : base(serviceContext) { }
 
-        public int InsertRecipe(RecipeRequest recipeRequest)
+        public async Task InsertRecipe(RecipeRequest recipeRequest)
         {
+            var postedBy = await _serviceContext.Set<UserItem>()
+                .Where(u => u.UserName == recipeRequest.PosterName)
+                .Select(u => u.Id)
+                .FirstOrDefaultAsync();
+            var category = await _serviceContext.Set<CategoryItem>()
+                .Where(c => c.Name == recipeRequest.Category)
+                .Select(c => c.Id)
+                .FirstOrDefaultAsync();
             var recipeData = new RecipeItem
             {
-
                 Name = recipeRequest.Name,
                 Instructions = recipeRequest.Instructions,
-                Category = recipeRequest.Category,
                 Author = recipeRequest.Author,
                 Materials = recipeRequest.Materials,
                 Observations = recipeRequest.Observations,
-                PostedBy = recipeRequest.PostedBy
-
+                PostedBy = postedBy,
+                PosterName = recipeRequest.PosterName,
+                Category = recipeRequest.Category,
+                CategoryId = category,
             };
-            _serviceContext.Recipes.Add(recipeData);
-            _serviceContext.SaveChanges();
-
+            await _serviceContext.Recipes.AddAsync(recipeData);
+            await _serviceContext.SaveChangesAsync();
 
             // Agrega los ingredientes a la tabla intermedia
             foreach (var ingredient in recipeRequest.Ingredients)
             {
-                var ingredientToAdd = new IngredientItem
+                var existingIngredient = await _serviceContext.Ingredients
+                    .FirstOrDefaultAsync(i => i.Ingredient == ingredient.Ingredient);
+                if (existingIngredient == null)
                 {
-
-                    Ingredient = ingredient.Ingredient
-                };
-                _serviceContext.Ingredients.Add(ingredientToAdd);
-                _serviceContext.SaveChanges();
-
-
-
+                    var ingredientToAdd = new IngredientItem
+                    {
+                        Ingredient = ingredient.Ingredient
+                    };
+                    await _serviceContext.Ingredients.AddAsync(ingredientToAdd);
+                    await _serviceContext.SaveChangesAsync();
+                    existingIngredient = ingredientToAdd;
+                }
 
                 var recipeIngredient = new Recipe_Ingredient
                 {
-
-                    IngredientName = ingredientToAdd.Ingredient,
+                    IngredientName = existingIngredient.Ingredient,
                     RecipeName = recipeData.Name,
-                    IngredientId = ingredientToAdd.Id,
+                    IngredientId = existingIngredient.Id,
                     RecipeId = recipeData.Id,
                     Amount = ingredient.Amount,
                     Unit = ingredient.Unit
-
                 };
-                _serviceContext.Recipe_Ingredients.Add(recipeIngredient);
-                _serviceContext.SaveChanges();
-
+                await _serviceContext.Recipe_Ingredients.AddAsync(recipeIngredient);
+                await _serviceContext.SaveChangesAsync();
             }
+
             foreach (var alergen in recipeRequest.Alergens)
             {
                 var alergenRecipe = new Recipe_Alergen
@@ -70,16 +77,11 @@ namespace Logic.Logic
                     RecipeId = recipeData.Id,
                     RecipeName = recipeData.Name
                 };
-                _serviceContext.Recipe_Alergens.Add(alergenRecipe);
-                _serviceContext.SaveChanges();
+                await _serviceContext.Recipe_Alergens.AddAsync(alergenRecipe);
+                await _serviceContext.SaveChangesAsync();
             }
-
-
-
-
-            _serviceContext.SaveChanges();
-            return recipeData.Id;
         }
+
 
 
 
@@ -117,10 +119,17 @@ namespace Logic.Logic
 
         }
 
-        public  List<RecipeItem> GetAllRecipes()
+        public async Task<List<RecipeItem>> GetAllRecipes()
         {
-            return  _serviceContext.Recipes.ToList();
-            
+            return await _serviceContext.Set<RecipeItem>()
+                       .Include(er => er.Alergens)
+                    .ThenInclude(era => era.Alergens)
+                    .Include(er => er.Ingredients)
+                    .ThenInclude(eri => eri.Ingredients)
+                    .ToListAsync();
+                    
+
+
         }
     }
 }

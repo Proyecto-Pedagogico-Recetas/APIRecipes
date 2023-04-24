@@ -24,6 +24,8 @@ namespace Entities.Entities
 
         [JsonIgnore]
         public virtual ICollection<OrderItem> Order { get; set; }
+        [JsonIgnore]
+        public virtual ICollection<RecipeItem> Recipes { get; set; }
 
     }
 }

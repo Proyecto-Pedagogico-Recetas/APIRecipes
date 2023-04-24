@@ -14,9 +14,9 @@ namespace API.Services
             _recipeItemLogic = recipeItemLogic;
         }
 
-        public int InsertRecipe(RecipeRequest recipeRequest)
+        public async Task InsertRecipe(RecipeRequest recipeRequest)
         {
-            return _recipeItemLogic.InsertRecipe(recipeRequest);
+            await _recipeItemLogic.InsertRecipe(recipeRequest);
             
         }
 
@@ -30,9 +30,9 @@ namespace API.Services
             return await _recipeItemLogic.GetRecipe(recipeId);
         }
 
-        public List<RecipeItem> GetAllRecipes()
+        public async Task<List<RecipeItem>> GetAllRecipes()
         {
-            return _recipeItemLogic.GetAllRecipes();
+            return await _recipeItemLogic.GetAllRecipes();
         }
     }
 }

@@ -25,10 +25,10 @@ namespace API.Controllers
 
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "InsertRecipe")]
-        public int Post([FromBody] RecipeRequest recipeRequest)
+        public async Task Post([FromBody] RecipeRequest recipeRequest)
         {
 
-            return _recipeItemService.InsertRecipe(recipeRequest);
+            await _recipeItemService.InsertRecipe(recipeRequest);
         }
 
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]
@@ -54,10 +54,10 @@ namespace API.Controllers
         [EndpointAuthorize(AllowsAnonymous = true)]
 
         [HttpGet(Name = "GetAllRecipes")]
-        public List<RecipeItem> GetAllRecipes()
+        public async Task<List<RecipeItem>> GetAllRecipes()
         {
 
-            return _recipeItemService.GetAllRecipes();
+            return await _recipeItemService.GetAllRecipes();
         }
 
         //[HttpPatch(Name = "ModifyImage")]

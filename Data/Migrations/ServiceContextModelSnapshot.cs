@@ -22,6 +22,21 @@ namespace Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("CategoryItemRecipeItem", b =>
+                {
+                    b.Property<int>("CategoriesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RecipesId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CategoriesId", "RecipesId");
+
+                    b.HasIndex("RecipesId");
+
+                    b.ToTable("CategoryItemRecipeItem", (string)null);
+                });
+
             modelBuilder.Entity("Entities.Entities.AlergenItem", b =>
                 {
                     b.Property<int>("Id")
@@ -129,7 +144,11 @@ namespace Data.Migrations
                     b.Property<string>("Author")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Category")
+                    b.Property<string>("Category")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("InsertDate")
@@ -158,9 +177,11 @@ namespace Data.Migrations
                     b.Property<int>("PostedBy")
                         .HasColumnType("int");
 
-                    b.HasKey("Id");
+                    b.Property<string>("PosterName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasIndex("Category");
+                    b.HasKey("Id");
 
                     b.HasIndex("PostedBy");
 
@@ -309,6 +330,36 @@ namespace Data.Migrations
                     b.ToTable("Recipe_Ingredients", (string)null);
                 });
 
+            modelBuilder.Entity("RecipeItemUserItem", b =>
+                {
+                    b.Property<int>("RecipesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UsersId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RecipesId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("RecipeItemUserItem", (string)null);
+                });
+
+            modelBuilder.Entity("CategoryItemRecipeItem", b =>
+                {
+                    b.HasOne("Entities.Entities.CategoryItem", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Entities.RecipeItem", null)
+                        .WithMany()
+                        .HasForeignKey("RecipesId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("Entities.Entities.OrderItem", b =>
                 {
                     b.HasOne("Entities.Entities.IngredientItem", "Ingredient")
@@ -330,12 +381,6 @@ namespace Data.Migrations
 
             modelBuilder.Entity("Entities.Entities.RecipeItem", b =>
                 {
-                    b.HasOne("Entities.Entities.CategoryItem", null)
-                        .WithMany()
-                        .HasForeignKey("Category")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
                     b.HasOne("Entities.Entities.UserItem", null)
                         .WithMany()
                         .HasForeignKey("PostedBy")
@@ -388,6 +433,21 @@ namespace Data.Migrations
                     b.Navigation("Ingredients");
 
                     b.Navigation("Recipes");
+                });
+
+            modelBuilder.Entity("RecipeItemUserItem", b =>
+                {
+                    b.HasOne("Entities.Entities.RecipeItem", null)
+                        .WithMany()
+                        .HasForeignKey("RecipesId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Entities.UserItem", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Entities.Entities.AlergenItem", b =>
