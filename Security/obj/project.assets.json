@@ -3996,24 +3996,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\juanc\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\USUARIO\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Security\\Security.csproj",
+      "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Security\\Security.csproj",
       "projectName": "Security",
-      "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Security\\Security.csproj",
-      "packagesPath": "C:\\Users\\juanc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Security\\obj\\",
+      "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Security\\Security.csproj",
+      "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Security\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\juanc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4027,8 +4022,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Logic\\Logic.csproj": {
-              "projectPath": "C:\\Users\\juanc\\FactoriaF5-proyectos\\Proyectos\\ProyectoPedag\\APIRecipes\\Logic\\Logic.csproj"
+            "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Logic\\Logic.csproj": {
+              "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Logic\\Logic.csproj"
             }
           }
         }

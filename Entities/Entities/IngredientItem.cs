@@ -19,6 +19,6 @@ namespace Entities.Entities
 
         [JsonIgnore]
         public virtual ICollection<OrderItem> Order { get; set; }
-
+        public bool IsActive { get; set; }
     }
 }
