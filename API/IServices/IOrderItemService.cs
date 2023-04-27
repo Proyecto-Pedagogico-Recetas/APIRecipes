@@ -8,7 +8,7 @@ namespace API.IServices
 
         List<OrderItem> GetOrders();
 
-        Task<OrderItem> InsertOrder(OrderRequest orderRequest);
+        public Task<IEnumerable<OrderItem>> InsertOrder(IEnumerable<OrderRequest> orderRequests);
 
     }
 }

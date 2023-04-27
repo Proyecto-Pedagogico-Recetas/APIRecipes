@@ -21,46 +21,35 @@ namespace Logic.Logic
             return _serviceContext.Orders.ToList();
         }
 
-        public async Task<OrderItem> InsertOrder(OrderRequest orderRequest)
+        public async Task<IEnumerable<OrderItem>> InsertOrder(IEnumerable<OrderRequest> orderRequests)
         {
-
-            //var user = _serviceContext.Users.FirstOrDefaultAsync(u => u.UserName == orderRequest.User);
-            //var ingredient = _serviceContext.Ingredients.FirstOrDefaultAsync(i => i.Ingredient == orderRequest.Ingredient);
-
-            var user = await _serviceContext.Users.FirstOrDefaultAsync(u => u.UserName == orderRequest.User);
-            var ingredient = await _serviceContext.Ingredients.FirstOrDefaultAsync(i => i.Ingredient == orderRequest.Ingredient);
-
-
-            var newOrder =new OrderItem
+            var newOrders = new List<OrderItem>();
+            foreach (var orderRequest in orderRequests)
             {
-                IdUser = user.Id,
-                IdIngredient = ingredient.Id,
-                Amount = orderRequest.Amount,
-                Unit = orderRequest.Unit,
-                User = user,
-                Ingredient = ingredient,
+                var orderData = orderRequest.Items;
+                foreach (var item in orderData)
+                {
+                    var userId = item.IdUser;
+                    var ingredientId = item.IdIngredient;
 
-            };
+                    var newOrder = new OrderItem
+                    {
+                        IdUser = userId,
+                        IdIngredient = ingredientId,
+                        Amount = item.Amount,
+                        Unit = item.Unit
+                    };
 
-            _serviceContext.Orders.Add(newOrder);
-            await _serviceContext.SaveChangesAsync();
+                    _serviceContext.Orders.Add(newOrder);
+                    await _serviceContext.SaveChangesAsync();
+                    newOrders.Add(newOrder);
+                }
+            }
 
-            return newOrder;
-
-
-
-            // Buscar el usuario correspondiente al nombre recibido en la solicitud
-            //var user = await _serviceContext.Users.FirstOrDefaultAsync(u => u.Name == orderRequest.User);
-
-            // Crear una nueva instancia de OrderItem y establecer la propiedad IdUser con el Id del usuario encontrado
-            //var newOrder = new OrderItem
-            //{
-            //IdUser = user.Id,
-            // Otras propiedades de OrderItem
-            //};
-
+            return newOrders;
         }
     }
+     
 }
 
 

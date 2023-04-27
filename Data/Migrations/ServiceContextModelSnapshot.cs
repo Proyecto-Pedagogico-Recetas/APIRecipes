@@ -34,7 +34,7 @@ namespace Data.Migrations
 
                     b.HasIndex("RecipesId");
 
-                    b.ToTable("CategoryItemRecipeItem", (string)null);
+                    b.ToTable("CategoryItemRecipeItem");
                 });
 
             modelBuilder.Entity("Entities.Entities.AlergenItem", b =>
@@ -121,14 +121,11 @@ namespace Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("IdIngredient");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("IdUser");
 
                     b.ToTable("Orders", (string)null);
                 });
@@ -342,7 +339,7 @@ namespace Data.Migrations
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("RecipeItemUserItem", (string)null);
+                    b.ToTable("RecipeItemUserItem");
                 });
 
             modelBuilder.Entity("CategoryItemRecipeItem", b =>
@@ -370,7 +367,7 @@ namespace Data.Migrations
 
                     b.HasOne("Entities.Entities.UserItem", "User")
                         .WithMany("Order")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("IdUser")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 

@@ -82,6 +82,12 @@ namespace Data
                 entity.HasOne(o => o.Ingredient)
                 .WithMany(i => i.Order)
                 .HasForeignKey(o => o.IdIngredient);
+
+                builder.Entity<OrderItem>()
+    .HasOne(o => o.User)
+    .WithMany(u => u.Order)
+    .HasForeignKey(o => o.IdUser);
+
                 //entity.HasOne(o => o.Ingredient).WithOne(i => i.Order).HasForeignKey<OrderItem>(o => o.IdIngredient);
 
 

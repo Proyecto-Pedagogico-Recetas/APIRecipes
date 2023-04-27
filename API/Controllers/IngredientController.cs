@@ -1,69 +1,69 @@
-﻿//using API.Attributes;
-//using API.IServices;
-//using Data;
-//using Entities.Entities;
-//using Microsoft.AspNetCore.Mvc;
-//using Resources.RequestModels;
-//using System.Web.Http.Cors;
+﻿using API.Attributes;
+using API.IServices;
+using Data;
+using Entities.Entities;
+using Microsoft.AspNetCore.Mvc;
+using Resources.RequestModels;
+using System.Web.Http.Cors;
 
-//namespace API.Controllers
-//{
-//    [EnableCors(origins: "*", headers: "*", methods: "*")]
-//    [Route("[controller]/[action]")]
-//    public class IngredientController : ControllerBase
-//    {
+namespace API.Controllers
+{
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    [Route("[controller]/[action]")]
+    public class IngredientController : ControllerBase
+    {
 
-//        private readonly IIngredientItemService _ingredientItemService;
-//        private readonly ServiceContext _serviceContext;
+        private readonly IIngredientItemService _ingredientItemService;
+        private readonly ServiceContext _serviceContext;
 
-//        public IngredientController(IIngredientItemService ingredientItemService, ServiceContext serviceContext)
-//        {
-//            _ingredientItemService = ingredientItemService;
-//            _serviceContext = serviceContext;
+        public IngredientController(IIngredientItemService ingredientItemService, ServiceContext serviceContext)
+        {
+            _ingredientItemService = ingredientItemService;
+            _serviceContext = serviceContext;
 
-//        }
+        }
 
-//        [EndpointAuthorize(AllowsAnonymous = true)]
-//        [HttpPost(Name = "InsertIngredient")]
-//        public int Post([FromBody] IngredientRequest ingredientRequest)
-//        {
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        [HttpPost(Name = "InsertIngredient")]
+        public int Post([FromBody] IngredientItem ingredientItem)
+        {
 
-//            return _ingredientItemService.InsertIngredient(ingredientRequest);
-//        }
+            return _ingredientItemService.InsertIngredient(ingredientItem);
+        }
 
-//        ////[EndpointAuthorize(AllowedUserRols = "Administrador")]
-//        //[EndpointAuthorize(AllowsAnonymous = true)]
-//        //[HttpDelete(Name = "DeleteRecipe")]
-//        //public void Delete([FromQuery] int Id)
-//        //{
+        ////[EndpointAuthorize(AllowedUserRols = "Administrador")]
+        //[EndpointAuthorize(AllowsAnonymous = true)]
+        //[HttpDelete(Name = "DeleteRecipe")]
+        //public void Delete([FromQuery] int Id)
+        //{
 
-//        //    _recipeItemService.DeleteRecipe(Id);
+        //    _recipeItemService.DeleteRecipe(Id);
 
-//        //}
+        //}
 
-//        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
-//        [EndpointAuthorize(AllowsAnonymous = true)]
-//        [HttpGet(Name = "GetAllIngredients")]
-//        public List<IngredientItem> GetIngredients()
-//        {
+        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        [HttpGet(Name = "GetAllIngredients")]
+        public List<IngredientItem> GetIngredients()
+        {
 
-//            return _ingredientItemService.GetIngredients();
-//        }
+            return _ingredientItemService.GetIngredients();
+        }
 
-//        //[HttpPatch(Name = "ModifyImage")]
-//        //public void Patch([FromBody] ImageItem imageItem)
+        //[HttpPatch(Name = "ModifyImage")]
+        //public void Patch([FromBody] ImageItem imageItem)
 
-//        //{
-//        //    _imageService.UpdateImage(imageItem);
+        //{
+        //    _imageService.UpdateImage(imageItem);
 
-//        //}
+        //}
 
 
-//        //[HttpGet(Name = "GetAllImages")]
-//        //public List<ImageItem> GetAll()
-//        //{
+        //[HttpGet(Name = "GetAllImages")]
+        //public List<ImageItem> GetAll()
+        //{
 
-//        //    return _imageService.GetAll();
+        //    return _imageService.GetAll();
 
-//    }    //}
-//}
+    }    //}
+}

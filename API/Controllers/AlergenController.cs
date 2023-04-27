@@ -13,10 +13,10 @@ namespace API.Controllers
     public class AlergenController : ControllerBase
     {
 
-        private readonly IIngredientItemService _alergenItemService;
+        private readonly IAlergenItemService _alergenItemService;
         private readonly ServiceContext _serviceContext;
 
-        public AlergenController(IIngredientItemService alergenItemService, ServiceContext serviceContext)
+        public AlergenController(IAlergenItemService alergenItemService, ServiceContext serviceContext)
         {
             _alergenItemService = alergenItemService;
             _serviceContext = serviceContext;

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace Entities.Entities
@@ -21,8 +22,9 @@ namespace Entities.Entities
         public string Unit { get; set; }
         public DateTime InsertDate { get; set; }
         public bool IsActive { get; set; }
-
+        [JsonIgnore]
         public virtual UserItem User { get; set; }
+        [JsonIgnore]
         public virtual IngredientItem Ingredient { get; set; }
 
     }

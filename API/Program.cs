@@ -61,7 +61,10 @@ builder.Services.AddScoped<ICategoryItemLogic, CategoryItemLogic>();
 builder.Services.AddScoped<ICategoryItemService, CategoryItemService>();
 
 builder.Services.AddScoped<IAlergenItemLogic, AlergenItemLogic>();
-builder.Services.AddScoped<IIngredientItemService, AlergenItemService>();
+builder.Services.AddScoped<IAlergenItemService, AlergenItemService>();
+
+builder.Services.AddScoped<IngredientItemLogic, IngredientItemLogic>();
+builder.Services.AddScoped<IIngredientItemService, IngredientItemService>();
 
 builder.Services.AddScoped<IOrderItemLogic, OrderItemLogic>();
 builder.Services.AddScoped<IOrderItemService, OrderItemService>();

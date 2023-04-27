@@ -6,7 +6,7 @@ using Resources.RequestModels;
 
 namespace API.Services
 {
-    public class AlergenItemService : IIngredientItemService
+    public class AlergenItemService : IAlergenItemService
     {
         private readonly IAlergenItemLogic _alergenItemLogic;
 
@@ -20,9 +20,11 @@ namespace API.Services
         }
 
 
-        int IIngredientItemService.InsertAlergen(AlergenRequest alergenRequest)
+        int IAlergenItemService.InsertAlergen(AlergenRequest alergenRequest)
         {
             return _alergenItemLogic.InsertAlergen(alergenRequest);
         }
+
+   
     }
 }

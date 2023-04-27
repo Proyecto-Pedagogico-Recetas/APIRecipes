@@ -6,9 +6,9 @@ namespace API.IServices
     public interface IIngredientItemService
     {
 
-        List<AlergenItem> GetAlergens();
+        List<IngredientItem> GetIngredients();
 
-        int InsertAlergen(AlergenRequest alergenRequest);
+        int InsertIngredient(IngredientItem ingredientItem);
 
     }
 }
