@@ -11,6 +11,7 @@ namespace Entities.Entities
     {
         public int Id { get; set; }
         public string Name { get; set; }
+        public string Image { get; set; }
 
         [JsonIgnore]
         public virtual ICollection<RecipeItem> Recipes { get; set; }
