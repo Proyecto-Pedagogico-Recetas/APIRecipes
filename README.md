@@ -32,7 +32,8 @@ In the project directory run:
 
 ## Screenshots:
 ### This is our BBDD:
- 
+ ![image (8)](https://user-images.githubusercontent.com/117833121/235253464-66373f36-8194-4cfa-80a7-569f6e0b02b1.png)
+
 
 
 ## Contributors:
