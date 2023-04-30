@@ -38,7 +38,7 @@ namespace Entities.Entities
         //[JsonIgnore]
         [ForeignKey("Recipe_AlergenId")]
         public virtual ICollection<Recipe_Alergen> Alergens { get; set; }
-
+        //[JsonIgnore]
         public virtual ICollection<CategoryItem> Categories { get; set; }
 
         public virtual ICollection<UserItem> Users { get; set; }

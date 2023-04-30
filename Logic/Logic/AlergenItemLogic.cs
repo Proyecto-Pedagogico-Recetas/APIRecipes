@@ -20,7 +20,8 @@ namespace Logic.Logic
 
 
 
-            return _serviceContext.Alergens.ToList();
+            return _serviceContext.Alergens
+                     .Where(p => p.IsActive == true).ToList(); ;
 
          }
 
@@ -36,6 +37,16 @@ namespace Logic.Logic
             _serviceContext.Alergens.Add(newAlergen);
             _serviceContext.SaveChanges();
             return newAlergen.Id;
+        }
+
+        public void DeleteAlergen(int id)
+        {
+            var alergenToDelete = _serviceContext.Set<AlergenItem>()
+                  .Where(r => r.Id == id).First();
+
+            alergenToDelete.IsActive = false;
+
+            _serviceContext.SaveChanges();
         }
     }
 }

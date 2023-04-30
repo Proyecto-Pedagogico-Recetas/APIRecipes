@@ -34,7 +34,7 @@ namespace Data.Migrations
 
                     b.HasIndex("RecipesId");
 
-                    b.ToTable("CategoryItemRecipeItem");
+                    b.ToTable("CategoryItemRecipeItem", (string)null);
                 });
 
             modelBuilder.Entity("Entities.Entities.AlergenItem", b =>
@@ -71,6 +71,9 @@ namespace Data.Migrations
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -343,7 +346,7 @@ namespace Data.Migrations
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("RecipeItemUserItem");
+                    b.ToTable("RecipeItemUserItem", (string)null);
                 });
 
             modelBuilder.Entity("CategoryItemRecipeItem", b =>

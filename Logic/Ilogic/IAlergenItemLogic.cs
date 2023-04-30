@@ -13,5 +13,7 @@ namespace Logic.Ilogic
 
         List<AlergenItem> GetAlergens();
         int InsertAlergen(AlergenRequest alergenRequest);
+
+        void DeleteAlergen(int id);
     }
 }

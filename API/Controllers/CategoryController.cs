@@ -23,23 +23,24 @@ namespace API.Controllers
 
         }
 
-        //[EndpointAuthorize(AllowsAnonymous = true)]
-        //[HttpPost(Name = "InsertRecipe")]
-        //public int Post([FromBody] RecipeRequest recipeRequest)
-        //{
-
-        //    return _recipeItemService.InsertRecipe(recipeRequest);
-        //}
-
+        [EndpointAuthorize(AllowsAnonymous = true)]
         ////[EndpointAuthorize(AllowedUserRols = "Administrador")]
-        //[EndpointAuthorize(AllowsAnonymous = true)]
-        //[HttpDelete(Name = "DeleteRecipe")]
-        //public void Delete([FromQuery] int Id)
-        //{
+        [HttpPost(Name = "InsertCategory")]
+        public int Post([FromBody] CategoryItem categoryItem)
+        {
 
-        //    _recipeItemService.DeleteRecipe(Id);
+            return _categoryItemService.InsertCategory(categoryItem);
+        }
 
-        //}
+        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        [HttpDelete(Name = "DeleteCategory")]
+        public void Delete([FromQuery] int Id)
+        {
+
+            _categoryItemService.DeleteCategory(Id);
+
+        }
 
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]

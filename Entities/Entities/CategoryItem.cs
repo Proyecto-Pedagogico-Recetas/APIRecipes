@@ -9,9 +9,14 @@ namespace Entities.Entities
 {
     public class CategoryItem
     {
+        public CategoryItem() 
+        {
+            IsActive= true;
+        }
         public int Id { get; set; }
         public string Name { get; set; }
         public string Image { get; set; }
+        public bool IsActive { get; set; }
 
         [JsonIgnore]
         public virtual ICollection<RecipeItem> Recipes { get; set; }

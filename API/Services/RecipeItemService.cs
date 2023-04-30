@@ -34,5 +34,9 @@ namespace API.Services
         {
             return await _recipeItemLogic.GetAllRecipes();
         }
+        public void UpdateRecipe(int id, RecipePatchRequest recipePatchRequest)
+        {
+             _recipeItemLogic.UpdateRecipe(id, recipePatchRequest);
+        }
     }
 }

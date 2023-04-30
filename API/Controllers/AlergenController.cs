@@ -31,15 +31,15 @@ namespace API.Controllers
             return _alergenItemService.InsertAlergen(alergenRequest);
         }
 
-        ////[EndpointAuthorize(AllowedUserRols = "Administrador")]
-        //[EndpointAuthorize(AllowsAnonymous = true)]
-        //[HttpDelete(Name = "DeleteRecipe")]
-        //public void Delete([FromQuery] int Id)
-        //{
+        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        [HttpDelete(Name = "DeleteAlergen")]
+        public void Delete([FromQuery] int Id)
+        {
 
-        //    _recipeItemService.DeleteRecipe(Id);
+            _alergenItemService.DeleteAlergen(Id);
 
-        //}
+        }
 
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]

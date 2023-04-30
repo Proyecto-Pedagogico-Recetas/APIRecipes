@@ -25,6 +25,11 @@ namespace API.Services
             return _alergenItemLogic.InsertAlergen(alergenRequest);
         }
 
-   
+        public void DeleteAlergen(int id)
+        {
+            _alergenItemLogic.DeleteAlergen(id);
+        }
+
+
     }
 }

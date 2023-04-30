@@ -18,7 +18,8 @@ namespace Logic.Logic
 
         public List<OrderItem>GetOrders()
         {
-            return _serviceContext.Orders.ToList();
+            return _serviceContext.Orders.ToList()
+              ;
         }
 
         public async Task<IEnumerable<OrderItem>> InsertOrder(IEnumerable<OrderRequest> orderRequests)

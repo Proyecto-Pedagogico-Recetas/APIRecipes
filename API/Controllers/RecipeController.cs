@@ -60,13 +60,15 @@ namespace API.Controllers
             return await _recipeItemService.GetAllRecipes();
         }
 
-        //[HttpPatch(Name = "ModifyImage")]
-        //public void Patch([FromBody] ImageItem imageItem)
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        [HttpPatch(Name = "ModifyRecipe")]
+        public void Patch([FromQuery] int id,
+                          [FromBody]RecipePatchRequest recipePatchRequest)
 
-        //{
-        //    _imageService.UpdateImage(imageItem);
+        {
+            _recipeItemService.UpdateRecipe(id, recipePatchRequest);
 
-        //}
+        }
 
 
         //[HttpGet(Name = "GetAllImages")]
