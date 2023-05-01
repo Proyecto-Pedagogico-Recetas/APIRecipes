@@ -21,7 +21,6 @@ namespace Entities.Entities
         public string Unit { get; set; }
         public DateTime InsertDate { get; set; }
         public bool IsActive { get; set; }
-
         public virtual UserItem User { get; set; }
         public virtual IngredientItem Ingredient { get; set; }
 

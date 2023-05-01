@@ -15,5 +15,6 @@ namespace Logic.Ilogic
 
         public  Task<RecipeItem> GetRecipe(int recipeId);
         public List<RecipeItem> GetAllRecipes();
+        void InsertRecipe(RecipeItem newRecipeItem);
     }
 }

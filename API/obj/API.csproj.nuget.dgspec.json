@@ -94,10 +94,10 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Data\\Data.csproj",
-        "projectName": "TestProject",
+        "projectName": "Data",
         "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\TestProject\\obj\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -113,7 +113,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Entities\\Entities.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -237,10 +241,10 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Logic\\Logic.csproj",
-        "projectName": "TestProject",
+        "projectName": "Logic",
         "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Logic\\Logic.csproj",
         "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\TestProject\\obj\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Logic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -257,11 +261,14 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\API\\API.csproj": {
-                "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\API\\API.csproj"
+              "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Data\\Data.csproj"
               },
               "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Entities\\Entities.csproj": {
                 "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Entities\\Entities.csproj"
+              },
+              "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Resources\\Resources.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Resources\\Resources.csproj"
               }
             }
           }
@@ -305,10 +312,10 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Resources\\Resources.csproj",
-        "projectName": "TestProject",
+        "projectName": "Resources",
         "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Resources\\Resources.csproj",
         "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\TestProject\\obj\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Resources\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -324,7 +331,14 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Data\\Data.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Data\\Data.csproj"
+              },
+              "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Entities\\Entities.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Entities\\Entities.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -360,10 +374,10 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Security\\Security.csproj",
-        "projectName": "TestProject",
+        "projectName": "Security",
         "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Security\\Security.csproj",
         "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\TestProject\\obj\\",
+        "outputPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Security\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -379,7 +393,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Logic\\Logic.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Desktop\\Backend\\APIRecipes\\Logic\\Logic.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

@@ -122,6 +122,11 @@ namespace Logic.Logic
             return  _serviceContext.Recipes.ToList();
             
         }
+
+        public void InsertRecipe(RecipeItem newRecipeItem)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

@@ -95,7 +95,6 @@ namespace API.Services
                 return true;
             }
         }
-
         public static object ValidateUserA(UserItem userA)
         {
             throw new NotImplementedException();
