@@ -48,7 +48,7 @@ namespace API.Controllers
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetAllOrders")]
-        public List<OrderItem> GetOrders()
+        public List<List<OrderItem>> GetOrders()
         {
 
             return _orderItemService.GetOrders();

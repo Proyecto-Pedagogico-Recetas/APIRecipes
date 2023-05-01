@@ -16,11 +16,12 @@ namespace Logic.Logic
 
 
 
-        public List<OrderItem>GetOrders()
+        public List<List<OrderItem>> GetOrders()
         {
-            return _serviceContext.Orders.ToList()
-              ;
+            var ordersByUser = _serviceContext.Orders.GroupBy(o => o.IdUser).ToList();
+            return ordersByUser.Select(o => o.ToList()).ToList();
         }
+
 
         public async Task<IEnumerable<OrderItem>> InsertOrder(IEnumerable<OrderRequest> orderRequests)
         {

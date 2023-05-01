@@ -10,7 +10,7 @@ namespace Logic.Ilogic
 {
     public interface IOrderItemLogic
     {
-        List<OrderItem> GetOrders();
+        public List<List<OrderItem>> GetOrders();
         public Task<IEnumerable<OrderItem>>InsertOrder(IEnumerable<OrderRequest> orderRequests);
     }
 }

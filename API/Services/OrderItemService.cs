@@ -14,7 +14,7 @@ namespace API.Services
         {
             _orderItemLogic = orderItemLogic;
         }
-        public List<OrderItem> GetOrders()
+        public List<List<OrderItem>> GetOrders()
         {
             return _orderItemLogic.GetOrders();
         }
