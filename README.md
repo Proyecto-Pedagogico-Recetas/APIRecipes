@@ -1,5 +1,6 @@
 # COOK-SMART
-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+We are a page of cooking recipes, described by teachers so that our students and users can learn their recipes. We indicate ingredients with their quantities, allergens and method of preparation. All separated by categories. At the same time, the ingredients of the recipes selected by the teachers for their elaboration are all collected in a total list of ingredients that the administrator receives. the administrator receives these individual lists plus the total list of all these lists and can edit this last list. This one is designed for the purchase of ingredients, so you can edit it if there are ingredients that you may have in stock.
 
 ## Technology stack used in Back-end:
 * **Microsoft Visual Studio** - [Sitio web oficial](https://visualstudio.microsoft.com/es/)
@@ -23,7 +24,7 @@ In the project directory run:
 * To activate the server and keep this terminal open ***$ npm run dev***
 
 
-## Methodologies 
+## Methodologies:
 *Methodology Agile with Scrum
 * Mob Programming
 * Pair Programming
@@ -34,6 +35,10 @@ In the project directory run:
 ### This is our BBDD:
  ![image (8)](https://user-images.githubusercontent.com/117833121/235253464-66373f36-8194-4cfa-80a7-569f6e0b02b1.png)
 
+## Tests:
+RecipeItem.test.cs
+
+![Test-Back](https://user-images.githubusercontent.com/117833121/235530906-dbbab2c3-47b4-4258-96eb-29da1ac24bdb.JPG)
 
 
 ## Contributors:
