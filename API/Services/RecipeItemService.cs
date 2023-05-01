@@ -34,6 +34,11 @@ namespace API.Services
         {
             return await _recipeItemLogic.GetAllRecipes();
         }
+
+        public async Task<List<RecipeItem>> GetRecipesByUser(int id)
+        {
+            return await _recipeItemLogic.GetRecipesByUser(id);
+        }
         public void UpdateRecipe(int id, RecipePatchRequest recipePatchRequest)
         {
              _recipeItemLogic.UpdateRecipe(id, recipePatchRequest);

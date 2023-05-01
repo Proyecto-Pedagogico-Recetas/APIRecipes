@@ -38,6 +38,7 @@ namespace Logic.Logic
         public List<UserItem> GetUsersById(int id)
         {
             var resultList = _serviceContext.Set<UserItem>()
+              
                                 .Where(u => u.Id == id);
             //var resultList = _serviceContext.Set<UserItem>()
             //                    .Where(u => u.IsActive == true);

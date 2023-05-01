@@ -132,6 +132,18 @@ namespace Logic.Logic
                     .ToListAsync();
         }
 
+        public async Task<List<RecipeItem>> GetRecipesByUser(int id)
+        {
+            return await _serviceContext.Set<RecipeItem>()
+                    .Where(p => p.IsActive == true)
+                    .Where(r => r.PostedBy== id)
+                    .Include(er => er.Alergens)
+                    .ThenInclude(era => era.Alergens)
+                    .Include(er => er.Ingredients)
+                    .ThenInclude(eri => eri.Ingredients)
+                    .ToListAsync();
+        }
+
         public void UpdateRecipe(int id, RecipePatchRequest recipePatchRequest)
         {
             var recipeItem = _serviceContext.Recipes.Find(id);

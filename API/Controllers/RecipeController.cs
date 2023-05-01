@@ -71,6 +71,16 @@ namespace API.Controllers
         }
 
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        [HttpPatch(Name = "GetRecipesbyUser")]
+        public async Task<List<RecipeItem>> GetRecipesByUser([FromQuery] int id)
+
+        {
+            return await _recipeItemService.GetRecipesByUser(id);
+
+        }
+
+
         //[HttpGet(Name = "GetAllImages")]
         //public List<ImageItem> GetAll()
         //{
