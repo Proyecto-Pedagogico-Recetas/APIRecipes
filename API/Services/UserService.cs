@@ -37,7 +37,6 @@ namespace API.Services
             newUserItem.EncryptedPassword = _userSecurityLogic.HashString(newUserRequest.Password);
             return _userLogic.InsertUser(newUserItem);
         }
-
         public void UpdateUser(UserItem userItem)
         {
             _userLogic.UpdateUser(userItem);

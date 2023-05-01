@@ -3,6 +3,7 @@ using Entities.Entities;
 using Logic.ILogic;
 using Resources.Enums;
 using Resources.FilterModels;
+using Resources.RequestModels;
 
 namespace Logic.Logic
 {
@@ -61,6 +62,14 @@ namespace Logic.Logic
             if (userItem.IdRol == (int)UserEnums.Administrator)
             {
                 throw new InvalidOperationException("Acción no autorizada");
+            };
+
+            var existingUser = _serviceContext.Set<UserItem>()
+                               .Where(u => u.UserName == userItem.UserName)
+                               .FirstOrDefault();
+            if (existingUser != null)
+            {
+                throw new InvalidOperationException("El nombre de usuario ya existe");
             };
 
             userItem.EncryptedToken = "NOT GENERATED";

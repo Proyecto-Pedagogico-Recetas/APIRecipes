@@ -72,7 +72,7 @@ namespace API.Controllers
 
 
         [EndpointAuthorize(AllowsAnonymous = true)]
-        [HttpPatch(Name = "GetRecipesbyUser")]
+        [HttpGet(Name = "GetRecipesbyUser")]
         public async Task<List<RecipeItem>> GetRecipesByUser([FromQuery] int id)
 
         {
