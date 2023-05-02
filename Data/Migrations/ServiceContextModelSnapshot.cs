@@ -34,7 +34,7 @@ namespace Data.Migrations
 
                     b.HasIndex("RecipesId");
 
-                    b.ToTable("CategoryItemRecipeItem", (string)null);
+                    b.ToTable("CategoryItemRecipeItem");
                 });
 
             modelBuilder.Entity("Entities.Entities.AlergenItem", b =>
@@ -118,6 +118,10 @@ namespace Data.Migrations
                     b.Property<int>("IdUser")
                         .HasColumnType("int");
 
+                    b.Property<string>("IngredientName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("InsertDate")
                         .HasColumnType("datetime2");
 
@@ -127,6 +131,9 @@ namespace Data.Migrations
                     b.Property<string>("Unit")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Username")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -346,7 +353,7 @@ namespace Data.Migrations
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("RecipeItemUserItem", (string)null);
+                    b.ToTable("RecipeItemUserItem");
                 });
 
             modelBuilder.Entity("CategoryItemRecipeItem", b =>

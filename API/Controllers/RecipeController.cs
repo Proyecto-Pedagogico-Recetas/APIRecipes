@@ -79,13 +79,5 @@ namespace API.Controllers
             return await _recipeItemService.GetRecipesByUser(id);
 
         }
-
-
-        //[HttpGet(Name = "GetAllImages")]
-        //public List<ImageItem> GetAll()
-        //{
-
-        //    return _imageService.GetAll();
-
-    }    //}
+    }   
 }

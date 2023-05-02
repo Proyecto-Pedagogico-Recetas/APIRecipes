@@ -25,25 +25,11 @@ namespace API.Controllers
 
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "InsertOrder")]
-        //public async Task<OrderItem> InsertOrder([FromBody] OrderRequest orderRequest);
          public async Task<IEnumerable<OrderItem>> InsertOrder([FromBody]IEnumerable<OrderRequest> orderRequests)
         {
 
             return await _orderItemService.InsertOrder(orderRequests);
         }
-
-        ////[EndpointAuthorize(AllowedUserRols = "Administrador")]
-        //[EndpointAuthorize(AllowsAnonymous = true)]
-        //[HttpDelete(Name = "DeleteRecipe")]
-        //public void Delete([FromQuery] int Id)
-        //{
-
-        //    _recipeItemService.DeleteRecipe(Id);
-
-        //}
-
-
-
 
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
@@ -53,25 +39,5 @@ namespace API.Controllers
 
             return _orderItemService.GetOrders();
         }
-
-
-
-
-
-        //[HttpPatch(Name = "ModifyImage")]
-        //public void Patch([FromBody] ImageItem imageItem)
-
-        //{
-        //    _imageService.UpdateImage(imageItem);
-
-        //}
-
-
-        //[HttpGet(Name = "GetAllImages")]
-        //public List<ImageItem> GetAll()
-        //{
-
-        //    return _imageService.GetAll();
-
-    }    //}
+    }    
 }

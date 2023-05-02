@@ -54,12 +54,7 @@ namespace API.Controllers
         {
             return _userService.GetAllUsers();
         }
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
-        //[HttpPatch(Name = "ModifyUser")]
-        //public void Patch([FromBody] UserItem userItem)
-        //{
-        //    _userService.UpdateUser(userItem);
-        //}
+
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpDelete(Name = "DeleteUser")]

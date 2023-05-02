@@ -17,7 +17,9 @@ namespace Entities.Entities
         }
         public int Id { get; set; }
         public int IdUser { get; set; }
+        public int Username { get; set; }
         public int IdIngredient { get; set; }
+        public string IngredientName { get; set; }
         public decimal Amount { get; set; }
         public string Unit { get; set; }
         public DateTime InsertDate { get; set; }

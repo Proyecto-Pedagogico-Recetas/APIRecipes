@@ -31,16 +31,6 @@ namespace API.Controllers
             return _ingredientItemService.InsertIngredient(ingredientItem);
         }
 
-        ////[EndpointAuthorize(AllowedUserRols = "Administrador")]
-        //[EndpointAuthorize(AllowsAnonymous = true)]
-        //[HttpDelete(Name = "DeleteRecipe")]
-        //public void Delete([FromQuery] int Id)
-        //{
-
-        //    _recipeItemService.DeleteRecipe(Id);
-
-        //}
-
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetAllIngredients")]
@@ -49,21 +39,5 @@ namespace API.Controllers
 
             return _ingredientItemService.GetIngredients();
         }
-
-        //[HttpPatch(Name = "ModifyImage")]
-        //public void Patch([FromBody] ImageItem imageItem)
-
-        //{
-        //    _imageService.UpdateImage(imageItem);
-
-        //}
-
-
-        //[HttpGet(Name = "GetAllImages")]
-        //public List<ImageItem> GetAll()
-        //{
-
-        //    return _imageService.GetAll();
-
-    }    //}
+    }
 }

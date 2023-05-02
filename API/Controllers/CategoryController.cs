@@ -50,21 +50,5 @@ namespace API.Controllers
 
             return _categoryItemService.GetCategories();
         }
-
-        //[HttpPatch(Name = "ModifyImage")]
-        //public void Patch([FromBody] ImageItem imageItem)
-
-        //{
-        //    _imageService.UpdateImage(imageItem);
-
-        //}
-
-
-        //[HttpGet(Name = "GetAllImages")]
-        //public List<ImageItem> GetAll()
-        //{
-
-        //    return _imageService.GetAll();
-
-    }    //}
+    }    
 }
