@@ -1,13 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿//using System;
+//using System.Collections.Generic;
+//using System.Linq;
+//using System.Text;
+//using System.Threading.Tasks;
 
-namespace Resources.RequestModels
-{
-    public class OrderRequestList
-    {
-        public List<OrderRequest> ItemsToOrder { get; set; }
-    }
-}
+//namespace Resources.RequestModels
+//{
+//    public class OrderRequestList
+//    {
+//        public List<OrdersRequest> ItemsToOrder { get; set; }
+//    }
+//}

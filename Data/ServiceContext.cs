@@ -74,6 +74,7 @@ namespace Data
             builder.Entity<UserRolItem>(entity => {
                 entity.ToTable("RolType");
                 builder.Entity<UserRolItem>().HasKey(ur => ur.Id);
+               
             });
 
             builder.Entity<OrderItem>(entity => {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Text.Json.Serialization;
@@ -26,6 +27,9 @@ namespace Entities.Entities
         public virtual ICollection<OrderItem> Order { get; set; }
         [JsonIgnore]
         public virtual ICollection<RecipeItem> Recipes { get; set; }
+        //[JsonIgnore]
+        //[NotMapped]
+        //public virtual UserRolItem UserRols { get; set; }
 
     }
 }

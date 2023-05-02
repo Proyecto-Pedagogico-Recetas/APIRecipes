@@ -25,10 +25,11 @@ namespace API.Controllers
 
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "InsertOrder")]
-         public async Task<IEnumerable<OrderItem>> InsertOrder([FromBody]IEnumerable<OrderRequest> orderRequests)
+         //public async Task<IEnumerable<OrderItem>> InsertOrder([FromBody]IEnumerable<OrderRequest> orderRequests)
+         public async Task InsertOrders([FromBody] OrdersRequest ordersRequest)
         {
 
-            return await _orderItemService.InsertOrder(orderRequests);
+            _orderItemService.InsertOrders(ordersRequest);
         }
 
         //[EndpointAuthorize(AllowedUserRols = "Administrador")]

@@ -23,37 +23,74 @@ namespace Logic.Logic
         }
 
 
-        public async Task<IEnumerable<OrderItem>> InsertOrder(IEnumerable<OrderRequest> orderRequests)
+        public async Task InsertOrders(OrdersRequest ordersRequest)
         {
-            var newOrders = new List<OrderItem>();
-            foreach (var orderRequest in orderRequests)
-            {
-                var orderData = orderRequest.Items;
-                foreach (var item in orderData)
-                {
-                    var userId = item.IdUser;
-                    var ingredientId = item.IdIngredient;
+
+            await _serviceContext.Orders.AddRangeAsync(ordersRequest.OrderItems);
+            await _serviceContext.SaveChangesAsync();
+
+            //var newOrders = new List<OrderItem>();
+
+            //foreach (var item in newOrders)
+            //{ 
+            //    //{
+            //    //var orderData = new OrderItem
+            //    //foreach (var item in orderData)
+            //    //    {
+            //    //       
+
+            //    var userId = item.IdUser;
+            //    var ingredientId = item.IdIngredient;
+            //    var newOrder = new OrderItem
+            //        {
+            //            IdUser = userId,
+            //            IdIngredient = ingredientId,
+            //            Amount = item.Amount,
+            //            Unit = item.Unit,
+            //            IngredientName = item.IngredientName,
+            //            Username= item.Username,
+            //        };
+            //         newOrders.Add(newOrder);
+            //        _serviceContext.Orders.Add(newOrder);
+            //        await _serviceContext.SaveChangesAsync();
+
+            //    //}
 
 
-                    var newOrder = new OrderItem
-                    {
-                        IdUser = userId,
-                        IdIngredient = ingredientId,
-                        Amount = item.Amount,
-                        Unit = item.Unit
-                    };
 
-                    _serviceContext.Orders.Add(newOrder);
-                    await _serviceContext.SaveChangesAsync();
-                    newOrders.Add(newOrder);
-                }
+            //var newOrders = new List<OrderItem>();
+
+            //foreach (var item in newOrders)
+            //{
+            //    //{
+            //    //var orderData = new OrderItem
+            //    //foreach (var item in orderData)
+            //    //    {
+            //    //       
+
+            //    var userId = item.IdUser;
+            //    var ingredientId = item.IdIngredient;
+            //    var newOrder = new OrderItem
+            //    {
+            //        IdUser = userId,
+            //        IdIngredient = ingredientId,
+            //        Amount = item.Amount,
+            //        Unit = item.Unit,
+            //        IngredientName = item.IngredientName,
+            //        Username = item.Username,
+            //    };
+            //    newOrders.Add(newOrder);
+            //    _serviceContext.Orders.Add(newOrder);
+            //    await _serviceContext.SaveChangesAsync();
+
+                //}
             }
 
-            return newOrders;
+           
         }
     }
      
-}
+
 
 
 
