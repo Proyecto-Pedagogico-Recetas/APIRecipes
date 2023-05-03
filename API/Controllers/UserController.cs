@@ -38,8 +38,9 @@ namespace API.Controllers
                 int userIdRol = user.IdRol;
                 UserRolItem rol = _serviceContext.Set<UserRolItem>().Where(ur => ur.Id == userIdRol).FirstOrDefault();
                 string roleName = rol?.Name;
+                string userName = user.UserName;
                 string token = _userSecurityService.GenerateAuthorizationToken(loginRequest.UserName, loginRequest.UserPassword);
-                return Ok(new Tuple<string, int, string>(token, userIdRol, roleName));
+                return Ok(new Tuple<string, int, string, string>(token, userIdRol, roleName, userName));
             }
             catch(UnauthorizedAccessException e)
             {

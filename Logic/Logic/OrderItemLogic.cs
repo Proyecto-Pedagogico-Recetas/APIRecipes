@@ -12,7 +12,7 @@ namespace Logic.Logic
 {
     public class OrderItemLogic : BaseContextLogic, IOrderItemLogic
     {
-        public OrderItemLogic (ServiceContext serviceContext) : base(serviceContext) { }
+        public OrderItemLogic(ServiceContext serviceContext) : base(serviceContext) { }
 
 
 
@@ -27,7 +27,7 @@ namespace Logic.Logic
         {
 
             await _serviceContext.Orders.AddRangeAsync(ordersRequest.OrderItems);
-            await _serviceContext.SaveChangesAsync();
+            _serviceContext.SaveChanges();
 
             //var newOrders = new List<OrderItem>();
 
@@ -60,7 +60,7 @@ namespace Logic.Logic
 
             //var newOrders = new List<OrderItem>();
 
-            //foreach (var item in newOrders)
+            //foreach (var item in ordersRequest.OrderItems)
             //{
             //    //{
             //    //var orderData = new OrderItem
@@ -79,16 +79,17 @@ namespace Logic.Logic
             //        IngredientName = item.IngredientName,
             //        Username = item.Username,
             //    };
-            //    newOrders.Add(newOrder);
+            //    //newOrders.Add(newOrder);
             //    _serviceContext.Orders.Add(newOrder);
-            //    await _serviceContext.SaveChangesAsync();
+            //    _serviceContext.SaveChanges();
 
                 //}
             }
 
-           
+
         }
     }
+
      
 
 
