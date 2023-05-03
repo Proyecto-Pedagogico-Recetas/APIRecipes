@@ -21,11 +21,34 @@ namespace Logic.Logic
 
 
 
-            return _serviceContext.Categories.ToList();
+            return _serviceContext.Categories
+                     .Where(p => p.IsActive == true).ToList(); 
 
+        }
 
+        public int InsertCategory(CategoryItem categoryItem)
+        {
 
+            var newCategory = new CategoryItem
+            {
+                Id = categoryItem.Id,
+                Name = categoryItem.Name,
+                Image= categoryItem.Image,
+            };
 
+            _serviceContext.Categories.Add(newCategory);
+            _serviceContext.SaveChanges();
+            return newCategory.Id;
+        }
+
+        public void DeleteCategory(int id)
+        {
+            var categoryToDelete = _serviceContext.Set<CategoryItem>()
+                  .Where(r => r.Id == id).First();
+
+            categoryToDelete.IsActive = false;
+
+            _serviceContext.SaveChanges();
         }
     }
 }

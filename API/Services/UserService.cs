@@ -26,9 +26,9 @@ namespace API.Services
             return _userLogic.GetAllUsers();
         }
 
-        public List<UserItem> GetUsersByCriteria(UserFilter userFilter)
+        public List<UserItem> GetUsersById(int id)
         {
-            return _userLogic.GetUsersByCriteria(userFilter);
+            return _userLogic.GetUsersById(id);
         }
 
         public int InsertUser(NewUserRequest newUserRequest)
@@ -37,7 +37,6 @@ namespace API.Services
             newUserItem.EncryptedPassword = _userSecurityLogic.HashString(newUserRequest.Password);
             return _userLogic.InsertUser(newUserItem);
         }
-
         public void UpdateUser(UserItem userItem)
         {
             _userLogic.UpdateUser(userItem);

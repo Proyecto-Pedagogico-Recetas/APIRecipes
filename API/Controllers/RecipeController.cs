@@ -25,13 +25,12 @@ namespace API.Controllers
 
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpPost(Name = "InsertRecipe")]
-        public int Post([FromBody] RecipeRequest recipeRequest)
+        public async Task Post([FromBody] RecipeRequest recipeRequest)
         {
 
-            return _recipeItemService.InsertRecipe(recipeRequest);
+            await _recipeItemService.InsertRecipe(recipeRequest);
         }
 
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpDelete(Name = "DeleteRecipe")]
         public void Delete([FromQuery] int Id)
@@ -41,30 +40,41 @@ namespace API.Controllers
 
         }
 
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
+        [EndpointAuthorize(AllowsAnonymous = true)]
+
+        [HttpGet(Name = "GetRecipeById")]
+        public async Task<RecipeItem> GetRecipe(int recipeId)
+        {
+
+            return await _recipeItemService.GetRecipe(recipeId);
+        }
+
         [EndpointAuthorize(AllowsAnonymous = true)]
 
         [HttpGet(Name = "GetAllRecipes")]
-        public async Task<RecipeItem> GetRecipes(int recipeId)
+        public async Task<List<RecipeItem>> GetAllRecipes()
         {
 
-            return await _recipeItemService.GetRecipes(recipeId);
+            return await _recipeItemService.GetAllRecipes();
         }
 
-        //[HttpPatch(Name = "ModifyImage")]
-        //public void Patch([FromBody] ImageItem imageItem)
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        [HttpPatch(Name = "ModifyRecipe")]
+        public void Patch([FromQuery] int id,
+                          [FromBody]RecipePatchRequest recipePatchRequest)
 
-        //{
-        //    _imageService.UpdateImage(imageItem);
+        {
+            _recipeItemService.UpdateRecipe(id, recipePatchRequest);
 
-        //}
+        }
 
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        [HttpGet(Name = "GetRecipesbyUser")]
+        public async Task<List<RecipeItem>> GetRecipesByUser([FromQuery] int id)
 
-        //[HttpGet(Name = "GetAllImages")]
-        //public List<ImageItem> GetAll()
-        //{
+        {
+            return await _recipeItemService.GetRecipesByUser(id);
 
-        //    return _imageService.GetAll();
-
-    }    //}
+        }
+    }   
 }

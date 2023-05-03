@@ -14,9 +14,9 @@ namespace API.Services
             _recipeItemLogic = recipeItemLogic;
         }
 
-        public int InsertRecipe(RecipeRequest recipeRequest)
+        public async Task InsertRecipe(RecipeRequest recipeRequest)
         {
-            return _recipeItemLogic.InsertRecipe(recipeRequest);
+            await _recipeItemLogic.InsertRecipe(recipeRequest);
             
         }
 
@@ -25,9 +25,23 @@ namespace API.Services
             _recipeItemLogic.DeleteRecipe(id);
         }
 
-        public async Task<RecipeItem> GetRecipes(int recipeId)
+        public async Task<RecipeItem> GetRecipe(int recipeId)
         {
-            return await _recipeItemLogic.GetRecipes(recipeId);
+            return await _recipeItemLogic.GetRecipe(recipeId);
+        }
+
+        public async Task<List<RecipeItem>> GetAllRecipes()
+        {
+            return await _recipeItemLogic.GetAllRecipes();
+        }
+
+        public async Task<List<RecipeItem>> GetRecipesByUser(int id)
+        {
+            return await _recipeItemLogic.GetRecipesByUser(id);
+        }
+        public void UpdateRecipe(int id, RecipePatchRequest recipePatchRequest)
+        {
+             _recipeItemLogic.UpdateRecipe(id, recipePatchRequest);
         }
     }
 }

@@ -10,7 +10,10 @@ namespace Logic.Ilogic
 {
     public interface ICategoryItemLogic
     {
-
         List<CategoryItem> GetCategories();
+
+        int InsertCategory(CategoryItem categoryItem);
+
+        void DeleteCategory(int id);
     }
 }

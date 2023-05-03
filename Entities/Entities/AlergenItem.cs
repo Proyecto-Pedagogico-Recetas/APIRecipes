@@ -14,6 +14,7 @@ namespace Entities.Entities
         public AlergenItem() 
         { 
             IsActive= true;
+            IsChecked= false;
             
         }
         public int Id { get; set; }

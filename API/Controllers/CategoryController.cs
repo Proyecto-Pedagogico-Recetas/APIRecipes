@@ -23,25 +23,23 @@ namespace API.Controllers
 
         }
 
-        //[EndpointAuthorize(AllowsAnonymous = true)]
-        //[HttpPost(Name = "InsertRecipe")]
-        //public int Post([FromBody] RecipeRequest recipeRequest)
-        //{
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        [HttpPost(Name = "InsertCategory")]
+        public int Post([FromBody] CategoryItem categoryItem)
+        {
 
-        //    return _recipeItemService.InsertRecipe(recipeRequest);
-        //}
+            return _categoryItemService.InsertCategory(categoryItem);
+        }
 
-        ////[EndpointAuthorize(AllowedUserRols = "Administrador")]
-        //[EndpointAuthorize(AllowsAnonymous = true)]
-        //[HttpDelete(Name = "DeleteRecipe")]
-        //public void Delete([FromQuery] int Id)
-        //{
+        [EndpointAuthorize(AllowsAnonymous = true)]
+        [HttpDelete(Name = "DeleteCategory")]
+        public void Delete([FromQuery] int Id)
+        {
 
-        //    _recipeItemService.DeleteRecipe(Id);
+            _categoryItemService.DeleteCategory(Id);
 
-        //}
+        }
 
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetAllCategories")]
         public List<CategoryItem> GetCategories()
@@ -49,21 +47,5 @@ namespace API.Controllers
 
             return _categoryItemService.GetCategories();
         }
-
-        //[HttpPatch(Name = "ModifyImage")]
-        //public void Patch([FromBody] ImageItem imageItem)
-
-        //{
-        //    _imageService.UpdateImage(imageItem);
-
-        //}
-
-
-        //[HttpGet(Name = "GetAllImages")]
-        //public List<ImageItem> GetAll()
-        //{
-
-        //    return _imageService.GetAll();
-
-    }    //}
+    }    
 }

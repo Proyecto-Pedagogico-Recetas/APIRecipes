@@ -3,6 +3,7 @@ using Entities.Entities;
 using Logic.ILogic;
 using Resources.Enums;
 using Resources.FilterModels;
+using Resources.RequestModels;
 
 namespace Logic.Logic
 {
@@ -35,20 +36,23 @@ namespace Logic.Logic
                 .Where(u => u.IsActive == true)
                 .ToList();
         }
-        public List<UserItem> GetUsersByCriteria(UserFilter userFilter)
+        public List<UserItem> GetUsersById(int id)
         {
             var resultList = _serviceContext.Set<UserItem>()
-                                .Where(u => u.IsActive == true);
+              
+                                .Where(u => u.Id == id);
+            //var resultList = _serviceContext.Set<UserItem>()
+            //                    .Where(u => u.IsActive == true);
 
-            if (userFilter.InsertDateFrom != null)
-            {
-                resultList = resultList.Where(u => u.InsertDate > userFilter.InsertDateFrom);
-            }
+            //if (userFilter.InsertDateFrom != null)
+            //{
+            //    resultList = resultList.Where(u => u.InsertDate > userFilter.InsertDateFrom);
+            //}
 
-            if (userFilter.InsertDateTo != null)
-            {
-                resultList = resultList.Where(u => u.InsertDate < userFilter.InsertDateTo);
-            }
+            //if (userFilter.InsertDateTo != null)
+            //{
+            //    resultList = resultList.Where(u => u.InsertDate < userFilter.InsertDateTo);
+            //}
 
             return resultList.ToList();
         }
@@ -58,6 +62,14 @@ namespace Logic.Logic
             if (userItem.IdRol == (int)UserEnums.Administrator)
             {
                 throw new InvalidOperationException("Acción no autorizada");
+            };
+
+            var existingUser = _serviceContext.Set<UserItem>()
+                               .Where(u => u.UserName == userItem.UserName)
+                               .FirstOrDefault();
+            if (existingUser != null)
+            {
+                throw new InvalidOperationException("El nombre de usuario ya existe");
             };
 
             userItem.EncryptedToken = "NOT GENERATED";
