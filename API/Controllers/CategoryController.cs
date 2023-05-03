@@ -24,7 +24,6 @@ namespace API.Controllers
         }
 
         [EndpointAuthorize(AllowsAnonymous = true)]
-        ////[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [HttpPost(Name = "InsertCategory")]
         public int Post([FromBody] CategoryItem categoryItem)
         {
@@ -32,7 +31,6 @@ namespace API.Controllers
             return _categoryItemService.InsertCategory(categoryItem);
         }
 
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpDelete(Name = "DeleteCategory")]
         public void Delete([FromQuery] int Id)
@@ -42,7 +40,6 @@ namespace API.Controllers
 
         }
 
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetAllCategories")]
         public List<CategoryItem> GetCategories()

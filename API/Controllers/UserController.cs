@@ -39,16 +39,16 @@ namespace API.Controllers
                 UserRolItem rol = _serviceContext.Set<UserRolItem>().Where(ur => ur.Id == userIdRol).FirstOrDefault();
                 string roleName = rol?.Name;
                 string userName = user.UserName;
+                int userId = user.Id;
                 string token = _userSecurityService.GenerateAuthorizationToken(loginRequest.UserName, loginRequest.UserPassword);
-                return Ok(new Tuple<string, int, string, string>(token, userIdRol, roleName, userName));
+                return Ok(new Tuple<string, int, string, string, int>(token, userIdRol, roleName, userName, userId));
             }
             catch(UnauthorizedAccessException e)
             {
                 return Unauthorized(e.Message);
             }
         }
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
-        [EndpointAuthorize(AllowsAnonymous = true)]
+        [EndpointAuthorize(AllowedUserRols = "Administrador")]
         [HttpPost(Name = "InsertUser")]
         public int InsertUser([FromBody] NewUserRequest newUserRequest)
         {
@@ -62,7 +62,6 @@ namespace API.Controllers
             return _userService.GetAllUsers();
         }
 
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpDelete(Name = "DeleteUser")]
         public void Delete([FromQuery] int id)
@@ -71,7 +70,6 @@ namespace API.Controllers
         }
 
         [EndpointAuthorize(AllowsAnonymous = true)]
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [HttpGet(Name = "GetUsersById")]
         public List<UserItem> GetUserById([FromQuery] int id)
         {

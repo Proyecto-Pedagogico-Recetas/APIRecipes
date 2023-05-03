@@ -21,22 +21,15 @@ namespace Data
         public DbSet<CategoryItem> Categories { get; set; }
         public DbSet<UserItem> Users { get; set; }
         public DbSet<UserRolItem> RolType { get; set; }
-        //public DbSet<AuthorizationItem> Authorizations { get; set; }
         public DbSet<OrderItem> Orders { get; set; }
-
         public DbSet<Recipe_Alergen> Recipe_Alergens { get; set; }
         public DbSet<Recipe_Ingredient> Recipe_Ingredients { get; set; }
-        //public DbSet<Rol_Authorization> Rol_Authorization{ get; set; }
-
-
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<RecipeItem>(entity => {
                 entity.ToTable("Recipes");
                 builder.Entity<RecipeItem>().HasKey(p => p.Id);
-
-                //entity.HasOne<CategoryItem>().WithMany().HasForeignKey(r => r.Category);
                 entity.HasOne<UserItem>().WithMany().HasForeignKey(r => r.PostedBy);
 
 

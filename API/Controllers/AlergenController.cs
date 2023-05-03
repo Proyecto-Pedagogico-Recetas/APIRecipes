@@ -31,7 +31,6 @@ namespace API.Controllers
             return _alergenItemService.InsertAlergen(alergenRequest);
         }
 
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpDelete(Name = "DeleteAlergen")]
         public void Delete([FromQuery] int Id)
@@ -41,7 +40,6 @@ namespace API.Controllers
 
         }
 
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetAllAlergens")]
         public List<AlergenItem> GetAlergens()

@@ -18,8 +18,6 @@ namespace API.Services
         {
             return _alergenItemLogic.GetAlergens();
         }
-
-
         int IAlergenItemService.InsertAlergen(AlergenRequest alergenRequest)
         {
             return _alergenItemLogic.InsertAlergen(alergenRequest);

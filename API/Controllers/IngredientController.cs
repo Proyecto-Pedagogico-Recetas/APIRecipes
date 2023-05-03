@@ -31,7 +31,6 @@ namespace API.Controllers
             return _ingredientItemService.InsertIngredient(ingredientItem);
         }
 
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetAllIngredients")]
         public List<IngredientItem> GetIngredients()

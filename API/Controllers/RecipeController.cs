@@ -31,7 +31,6 @@ namespace API.Controllers
             await _recipeItemService.InsertRecipe(recipeRequest);
         }
 
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpDelete(Name = "DeleteRecipe")]
         public void Delete([FromQuery] int Id)
@@ -41,7 +40,6 @@ namespace API.Controllers
 
         }
 
-        //[EndpointAuthorize(AllowedUserRols = "Administrador")]
         [EndpointAuthorize(AllowsAnonymous = true)]
 
         [HttpGet(Name = "GetRecipeById")]
@@ -69,7 +67,6 @@ namespace API.Controllers
             _recipeItemService.UpdateRecipe(id, recipePatchRequest);
 
         }
-
 
         [EndpointAuthorize(AllowsAnonymous = true)]
         [HttpGet(Name = "GetRecipesbyUser")]
