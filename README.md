@@ -128,5 +128,21 @@ values
 | :---: | :---: | :---: |  :---: |  :---: |
 
 ## Next steps:
-------------------------------------------------------------------------------------------------------------------------------
+ 
+* Administrator limits the recipes that each user can view (subscription): This means that the system administrator can restrict access to certain recipes for specific users, depending on the type of subscription they have.
 
+* Save your recipes as favorites: This feature allows users to save their favorite recipes to a special list, so they can easily access them in the future.
+
+* Tags: Tags are keywords used to categorize and organize recipes. For example, tags like "vegetarian," "dessert," "quick," "easy," etc. can be used.
+
+* Download technical sheet: The technical sheet is a document that describes the details of a recipe, such as the ingredients, quantities, cooking times, etc. This  feature allows users to download this information in a file format for later use.
+
+* Email notification: This feature allows users to receive email notifications when new recipes are added or existing information is updated.
+
+* Download ingredient list: This feature allows users to download an ingredient list for a specific recipe, to facilitate the purchase of ingredients.
+
+* Filter recipes by user: This feature allows users to search and filter recipes by the user who created them.
+
+* Incorporate more users (students), sections like blog, curiosities, recipe images, subject content: This feature refers to the possibility of adding new users, such   as students, and creating additional sections in the system, such as a blog, a section for curiosities, recipe images and subject-specific content.
+
+* Add tag: This feature allows users to add new tags to an existing recipe to categorize it more specifically.
