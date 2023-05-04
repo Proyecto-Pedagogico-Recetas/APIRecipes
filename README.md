@@ -35,7 +35,82 @@ In the project directory run:
 ### This is our BBDD:
  ![image (8)](https://user-images.githubusercontent.com/117833121/235253464-66373f36-8194-4cfa-80a7-569f6e0b02b1.png)
 
+## Media queries:
+
+* insert into RolType
+
+([Name], [Description],IsActive)
+
+values
+('Administrador','Acceso a todos los métodos', 1)
+
+('Operator','Postea y lista recetas', 1) 
+
+('Operator','Postea y lista recetas', 1) 
+
+
+* select * from RolType
+
+* insert into Rol_Authorization
+
+(IdRol, IdAuthorization, IsActive)
+
+
+* insert into Users
+
+(IdRol, [UserName], InsertDate, IsActive, EncryptedPassword, EncryptedToken, TokenExpireDate)
+
+values
+
+(2, 'Maria', GETDATE(), 1, '$2a$11$F62mpHhfDZQJ65p50Lzz0OgzMnu3fZXcZWTbDjdMl.UrYcJqqG6k6', '', GETDATE())
+
+(1, 'Juan', GETDATE(), 1, '$2a$11$ESGTCdOxoR8oBsDj1OB9m.EmSJ3KTXf.Z873KzubFOtC16dno/0Cq', '', GETDATE())
+
+
+* select * from Users
+
+
+* insert into Alergens
+
+([Name], [IsActive], [IsChecked])
+
+values
+
+('Gluten', 1 , 0 ),
+
+('Lactosa', 1 , 0 )
+
+('Frutos secos', 1, 0)
+
+
+* select * from Alergens
+
+* insert into Categories
+
+([Name])
+
+values
+
+('Carne'),
+
+('Pescado'),
+
+('Pasta'),
+
+('Arroz')
+
+
+* select * from Categories
+
+
+
+* DROP TABLE RolType  (borrar tabla)
+
+
+
 ## Tests:
+
+
 RecipeItem.test.cs
 
 ![Test-Back](https://user-images.githubusercontent.com/117833121/235530906-dbbab2c3-47b4-4258-96eb-29da1ac24bdb.JPG)
