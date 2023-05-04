@@ -33,7 +33,7 @@ In the project directory run:
 
 ## Screenshots:
 ### This is our BBDD:
- ![image (8)](https://user-images.githubusercontent.com/117833121/235253464-66373f36-8194-4cfa-80a7-569f6e0b02b1.png)
+ ![Diagramatablas](https://user-images.githubusercontent.com/117833121/236322754-6a31388d-5f1e-4591-a3eb-bd062e4b1561.png)
 
 ## Media queries:
 
