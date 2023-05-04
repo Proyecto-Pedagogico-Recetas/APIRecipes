@@ -111,55 +111,13 @@ values
 ## Tests:
 
 
-* RecipeItemTest:
-Este archivo de prueba es para verificar si el método ValidateRecipe
-de la clase RecipeItemService funciona correctamente.
-Primero, se crean tres objetos RecipeItem (recipeA, recipeB y recipeC)
-con   diferentes   valores   de   propiedad.   Luego,   se   llama   al   método
-ValidateRecipe de la clase RecipeItemService para cada uno de estos
-objetos.
-Finalmente, se realiza la comprobación o aserción de que cada uno de
-estos   objetos   recipe   devuelve   el   valor   esperado   en   el   método
-ValidateRecipe, utilizando el método de aserción Assert.AreEqual. Si
-alguna de las aserciones falla, el mensaje de error personalizado se
-muestra en la consola.
-En   resumen,   este   archivo   de   prueba   verifica   si   el   método
-ValidateRecipe de la clase RecipeItemService funciona correctamente
-y produce los resultados esperados para cada objeto RecipeItem.
+* RecipeItemTest: This test file is to verify if the ValidateRecipe method of the RecipeItemService class works correctly. First, three RecipeItem objects (recipeA, recipeB, and recipeC) with different property values are created. Then, the ValidateRecipe method of the RecipeItemService class is called for each of these objects. Finally, the check or assertion is made that each of these recipe objects returns the expected value in the ValidateRecipe method, using the Assert.AreEqual assertion method. If any of the assertions fail, the custom error message is displayed on the console. In summary, this test file verifies if the ValidateRecipe method of the RecipeItemService class works correctly and produces the expected results for each RecipeItem object.
 
-* OrderItemTest:
-Este código muestra un ejemplo de unit test para la clase OrderItem. 
-La   clase   OrderItemTest   tiene   un   método   ValidateOrderTest,   que   se
-encarga de probar la validez de la instancia de OrderItem. Primero, se
-crean   tres   instancias   de   OrderItem   con   diferentes   valores   para   sus
-propiedades.   Luego   se   comentan   los   métodos   ValidateOrderA   y   se
-dejan los objetos de las pruebas, pero se deja comentado el código de
-la validación. Finalmente, se usan los métodos Assert.AreEqual para
-verificar que el resultado de la validación sea verdadero.
-Es importante mencionar que el código comentado que se encuentra
-dentro   del   método   OrderItemService.ValidateOrderA   y   la   clase
-OrderItemService es una posible implementación de la validación de
-un objeto OrderItem.
+* OrderItemTest: This code shows an example of a unit test for the OrderItem class. The OrderItemTest class has a ValidateOrderTest method, which is responsible for testing the validity of the OrderItem instance. First, three instances of OrderItem are created with different values for their properties. Then the ValidateOrderA methods are commented out, leaving only the test objects, but the validation code is commented out. Finally, the Assert.AreEqual methods are used to verify that the validation result is true. It is important to mention that the commented code found within the OrderItemService.ValidateOrderA method and the OrderItemService class is a possible implementation of OrderItem object validation.
 
-* UserItemTest:
-Este código muestra un ejemplo de una prueba unitaria utilizando el
-marco de pruebas unitarias de Microsoft .NET, conocido como MSTest.
-La prueba se realiza en la clase UserItemTest, y el método de prueba
-se llama ValidateUserTest.
-El   método   ValidateUserTest   utiliza   tres   instancias   de   la   clase
-UserItem,   userA,   userB,   y   userC,   y   los   configura   con   valores
-específicos   para   cada   propiedad   de   la   clase   UserItem.   Luego   se
-intenta validar cada usuario llamando al método ValidateUser de la
-clase UserService, el cual se define en un archivo diferente que no se
-incluye en este código. Sin embargo, parece que este método no se
-utiliza   en   esta   implementación,   ya   que   está   comentado   en   la
-sección //Act.
+* UserItemTest: This code shows an example of a unit test using the Microsoft .NET unit testing framework, known as MSTest. The test is performed on the UserItemTest class, and the test method is called ValidateUserTest. The ValidateUserTest method uses three instances of the UserItem class, userA, userB, and userC, and configures them with specific values for each property of the UserItem class. Then, each user is attempted to be validated by calling the ValidateUser method of the UserService class, which is defined in a separate file not included in this code. However, it appears that this method is not used in this implementation since it is commented out in the //Act section.
 
-Finalmente,   se   incluyen   tres   afirmaciones   utilizando   el   método
-Assert.AreEqual   para   verificar   que   los   usuarios   son   válidos.   Sin
-embargo,   estas   afirmaciones   también   están   comentadas   en   la
-sección //Assert, lo que sugiere que esta prueba en particular se ha 
-desactivado o no se ha implementado completamente.
+* Finally, three assertions are included using the Assert.AreEqual method to verify that the users are valid. However, these assertions are also commented out in the //Assert section, suggesting that this particular test has been disabled or not fully implemented.
 
 
 ![Test-Back](https://user-images.githubusercontent.com/117833121/235530906-dbbab2c3-47b4-4258-96eb-29da1ac24bdb.JPG)
